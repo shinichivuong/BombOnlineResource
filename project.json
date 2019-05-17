@@ -1,0 +1,32 @@
+{
+    "project_type": "javascript",
+
+    "debugMode" : 1,
+    "showFPS" : true,
+    "frameRate" : 60,
+    "noCache" : false,
+    "id" : "gameCanvas",
+    "renderMode" : 2,
+    "engineDir":"frameworks/cocos2d-html5",
+
+    "modules" : ["cocos2d","extensions"],
+
+    "jsList" : [
+
+        "src/Game_Maps.js",
+        "src/Game_Resource.js",
+        "src/Game_gamePlay1.js",
+        "src/Game_Bomb.js",
+        "src/Game_Player.js",
+        "src/Game_Scenes.js",
+        "src/Game_Help.js",
+        "src/Game_Creep.js",
+        "src/Game_Score.js",
+        "src/Game_Item.js",
+        "src/Game_Vars.js",
+        "src/Game_Map2.js",
+        "src/Game_level2.js",
+        "src/Main.js"
+
+    ]
+}
