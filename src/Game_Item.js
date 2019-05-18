@@ -1,6 +1,6 @@
 itemCount=0;
 additemsBoom = function(game) {
-    for (var i = 0; i < 6; i++) {
+    for (var i = 0; i < 8; i++) {
         itemBombs[i] = new cc.Sprite.create(res.ItemBoom_png);
         itemBombs[i].setAnchorPoint(cc.p(0.5, 0.5));
         game.addChild(itemBombs[i]);
@@ -12,6 +12,8 @@ additemsBoom = function(game) {
     itemBombs[3].setPosition(cc.p(700, 525));
     itemBombs[4].setPosition(cc.p(745, 345));
     itemBombs[5].setPosition(cc.p(745, 210));
+    itemBombs[6].setPosition(cc.p(610, 300));
+    itemBombs[7].setPosition(cc.p(610, 345));
 },
     additemsShoe = function(game) {
         for (var i = 0; i < 4; i++) {
