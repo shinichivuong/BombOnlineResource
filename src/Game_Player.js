@@ -8,10 +8,26 @@ creatPlayer=function (game) {
     player = new cc.Sprite.create(res.BeBongDown_png);
     player.setAnchorPoint(cc.p(0.5, 0.5));
     game.addChild(player);
-    player.setPosition(cc.p(795, 75));
+    player.setPosition(cc.p(750, 75));
 
 
 },
+    checkDie = function (rect) {
+        for (var i = 0; i < arrcreeps.length; i++) {
+            if (arrcreeps[i].visible == true) {
+                var rectEnemy = cc.rect(arrcreeps[i].getPositionX() - arrcreeps[i].getContentSize().width / 2 * arrcreeps[i].getScaleX(),
+                    arrcreeps[i].getPositionY() - arrcreeps[i].getContentSize().height / 2 * arrcreeps[i].getScaleY(),
+                    arrcreeps[i].getContentSize().width * arrcreeps[i].getScaleX(),
+                    arrcreeps[i].getContentSize().height * arrcreeps[i].getScaleY());
+                if (cc.rectIntersectsRect(rect, rectEnemy)) {
+                    return false;
+                    cc.audioEngine.playMusic()
+                }
+            }
+
+        }
+        return true;
+    },
 checkPlayerSax = function () {
     var rectHero = cc.rect(player.getPositionX() - player.getContentSize().width / 2 * player.getScaleX(),
         player.getPositionY() - player.getContentSize().height / 2 * player.getScaleY(),

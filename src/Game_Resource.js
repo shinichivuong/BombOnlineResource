@@ -27,7 +27,6 @@ var res = {
     Sound_foot: "res/sound/foot.wav",
     Back2_png: "res/win.jpg",
 
-    sound_main: "res/sound/menu.wav",
     BeBongDown_png: "res/bebong_down.png",
     BeBongLeft_png: "res/bebong_left.png",
     BeBongRight_png: "res/bebong_right.png",
@@ -37,14 +36,23 @@ var res = {
 
     Ghost_png: "res/user/ghost2.png",
     SaxNuoc_png:"res/bebong_dead.png",
+    GhostCr_png:"res/ghost3.png",
 
 
     Boss_png: "res/quaivat 3_left.png",
+    BigBossDown_png:"res/Boss/boss_down.png",
+    BigBossLeft_png:"res/Boss/boss_left.png",
+    BigBossRight_png:"res/Boss/boss_right.png",
+    BigBossUp_png:"res/Boss/boss_up.png",
+    BigBossHeart_png:"res/Boss/heart_boss.png",
     //sound
     Playgame_sound: "res/sound/playgame.wav",
     Sound_creatBoom: "res/sound/newbomb.wav",
+    Sound_bombang:"res/sound/bomb_bang.wav",
     Sound_item: "res/sound/item.wav",
+    sound_main: "res/sound/menu.wav",
 
+    Chat_png:"res/chat-28317513.jpg",
 
     BoxGo_png: "res/boxgo.png",
     BoxGo2_png: "res/boxgo2.png",

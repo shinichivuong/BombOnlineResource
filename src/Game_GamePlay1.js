@@ -7,7 +7,8 @@ var Gamelayers = cc.Layer.extend({
         countItemBoom(game);
         countItemSpeed(game);
         countKillBoos(game);
-        win(game);
+        playerLive(game);
+        // win(game);
         // var size=cc.director.getWinSize();
 
 
@@ -121,7 +122,9 @@ var Gamelayers = cc.Layer.extend({
         var size = cc.director.getWinSize();
         mytime = mytime + dt;
         timer = timer + dt;
+        bossDie = bossDie + dt;
         move();
+
         AI(size);
         //set thời gian game
         realTime += dt;
@@ -130,6 +133,10 @@ var Gamelayers = cc.Layer.extend({
         countSpeedLB.setString((countItemSpeddGame + 1));
         countKillBossLB.setString(countkillboss);
         //Bomb nổ
+        if (countHeartBoss==0){
+            arrcreeps[5].setVisible(false);
+            chat.setVisible(false);
+        }
         for (var i = 0; i < arrBombs.length; i++) {
             if (timeBB[i] > 120) {
                 arrBombs[i].setTexture(res.BoomBang_png);
@@ -143,9 +150,19 @@ var Gamelayers = cc.Layer.extend({
                             arrcreeps[k].getContentSize().width * arrcreeps[k].getScaleX(),
                             arrcreeps[k].getContentSize().width * arrcreeps[k].getScaleY());
                         if (checkBoom(rectEnemy2) == false) {
-                            arrcreeps[k].setVisible(false);
-                            countkillboss = countkillboss + 1;
+                            if (k == 5) {
+                                heart[countHeartBoss - 1].setVisible(false);
+                                isBossBomb = false;
+                            }
+                            else {
+                                arrcreeps[k].setTexture(res.GhostCr_png);
+                                arrcreeps[k].setVisible(false);
+                                // checkbossDie=bossDie;
+                                countkillboss = countkillboss + 1;
+                            }
+
                         }
+
                     }
                 }
 
@@ -154,9 +171,14 @@ var Gamelayers = cc.Layer.extend({
             if (timeBB[i] > 130) {
                 arrBombs[i].setVisible(false);
                 countBomb = countBomb + 1;
+                if (isBossBomb==false){
+                    countHeartBoss -= 1;
+
+                }
                 delete timeBB[i];
 
             }
+            isBossBomb=true;
         }
 
 //nhan vat khi trung boom
@@ -181,7 +203,7 @@ var Gamelayers = cc.Layer.extend({
 
 AI = function (size) {
     if (mytime - mytime2 > 1) {
-        for (var i = 0; i < 5; i++) {
+        for (var i = 0; i < 7; i++) {
             huong[i] = generateDirection();
             var pos = arrcreeps[i].getPosition();
             var skipeX = pos.x;
@@ -189,23 +211,48 @@ AI = function (size) {
 
 
             if (huong[i].x == 0 && huong[i].y == 45) {
-                arrcreeps[i].setTexture(res.Creepup_png);
+                if (i == 5) {
+                    arrcreeps[i].setTexture(res.BigBossUp_png);
+
+                }
+                else {
+                    arrcreeps[i].setTexture(res.Creepup_png);
+
+                }
             }
             if (huong[i].x == 45 && huong[i].y == 0) {
-                arrcreeps[i].setTexture(res.Creepright_png);
+                if (i == 5) {
+                    arrcreeps[i].setTexture(res.BigBossRight_png);
+
+                }
+                else {
+                    arrcreeps[i].setTexture(res.Creepright_png);
+                }
             }
             if (huong[i].x == (-45) && huong[i].y == 0) {
-                arrcreeps[i].setTexture(res.Creepleft_png);
+                if (i == 5) {
+                    arrcreeps[i].setTexture(res.BigBossLeft_png);
+
+                }
+                else {
+                    arrcreeps[i].setTexture(res.Creepleft_png);
+                }
             }
             if (huong[i].x == 0 && huong[i].y == (-45)) {
-                arrcreeps[i].setTexture(res.Creepdown_png);
+                if (i == 5) {
+                    arrcreeps[i].setTexture(res.BigBossDown_png);
+
+                }
+                else {
+                    arrcreeps[i].setTexture(res.Creepdown_png);
+                }
             }
             var point = cc.pAdd(pos, huong[i]);
 
             var rectCreep = cc.rect(point.x - arrcreeps[i].getContentSize().width / 2 * arrcreeps[i].getScaleX(),
-                point.y - arrcreeps[i].getContentSize().height / 2 * arrcreeps[i].getScaleY(),
-                (arrcreeps[i].getContentSize().width / 2-2) * arrcreeps[i].getScaleX(),
-                ( arrcreeps[i].getContentSize().width / 2-2) * arrcreeps[i].getScaleY());
+                point.y - arrcreeps[i].getContentSize().width / 2 * arrcreeps[i].getScaleY(),
+                arrcreeps[i].getContentSize().width  * arrcreeps[i].getScaleX(),
+                arrcreeps[i].getContentSize().width  * arrcreeps[i].getScaleY());
             if (checkPlayerGame(rectCreep) == false || checkBoom(rectCreep) == false || point.x > size.width || point.x < 0 || point.y < 0 || point.y > size.height) {
                 point.x = skipeX;
                 point.y = skipeY;
@@ -213,14 +260,20 @@ AI = function (size) {
             mytime2 = mytime;
             sprite_action2 = new cc.MoveTo(1, point);
             arrcreeps[i].runAction(sprite_action2);
+            if (i == 5) {
+                for (var j = 0; j < countHeartBoss; j++) {
+                    actionHeart = new cc.MoveTo(1, cc.p(point.x - arrcreeps[5].getContentSize().width / 3 + j * 10, point.y + 80));
+                    heart[j].runAction(actionHeart);
+                }
+                actionChat= new cc.moveTo(1,cc.p(point.x, point.y + 130));
+                chat.runAction(actionChat);
+            }
+
         }
     }
 
 },
     moveGame = function () {
-        //     if (timer - mycurrentime > 1) {
-        //         timer = mycurrentime;
-        // }
         var rectHero = cc.rect(player.getPositionX() - player.getContentSize().width / 2 * player.getScaleX(),
             player.getPositionY() - player.getContentSize().width / 2 * player.getScaleY(),
             player.getContentSize().width * player.getScaleX(),
@@ -262,12 +315,15 @@ AI = function (size) {
         backGr.setPosition(size.width / 2, size.height / 2);
         // backGr.setScale(0.8);
         game.addChild(backGr);
-
+        additemsBoom(game);
+        additemsShoe(game);
         creatMap(game, arrMap);
         creatPlayer(game);
         addCreep(game);
-        additemsBoom(game);
-        additemsShoe(game);
+
+        userName(game);
+        bossHeart(game);
+
 
         var cancel = new ccui.Button();
         cancel.loadTextures(res.BtnCancel_png, res.BtnCancel2_png);
@@ -277,9 +333,10 @@ AI = function (size) {
         game.addChild(cancel);
         var avtPlayer = new cc.Sprite(res.AvtBeBong1_png);
         avtPlayer.setAnchorPoint(cc.p(0.5, 0.5));
-        avtPlayer.setPosition(size.width-100, size.height-170);
+        avtPlayer.setPosition(size.width - 100, size.height - 170);
         avtPlayer.setScale(0.4);
-        game.addChild(avtPlayer,0);
+        game.addChild(avtPlayer, 0);
+
 
         GamekeyX = function () {
             console.log("press keyX")
@@ -301,6 +358,7 @@ AI = function (size) {
                 console.log("press keyEsc")
             },
             move = function () {
+
                 for (var i = 0; i < timeBB.length; i++) {
                     timeBB[i] += 1;
 
@@ -347,29 +405,15 @@ AI = function (size) {
             setDown = function () {
                 player.setTexture(res.BeBongDown_png);
             },
-            checkDie = function (rect) {
-                for (var i = 0; i < arrcreeps.length; i++) {
-                    if (arrcreeps[i].visible == true) {
-                        var rectEnemy = cc.rect(arrcreeps[i].getPositionX() - arrcreeps[i].getContentSize().width / 2 * arrcreeps[i].getScaleX(),
-                            arrcreeps[i].getPositionY() - arrcreeps[i].getContentSize().height / 2 * arrcreeps[i].getScaleY(),
-                            arrcreeps[i].getContentSize().width * arrcreeps[i].getScaleX(),
-                            arrcreeps[i].getContentSize().height * arrcreeps[i].getScaleY());
-                        if (cc.rectIntersectsRect(rect, rectEnemy)) {
-                            return false;
-                        }
-                    }
 
-                }
-                return true;
-            },
 
             checkPlayerGame = function (rect) {
                 for (var i = 0; i < arrrectMap.length; i++) {
                     if (arrrectMap[i].visible == true) {
-                        var rectEnemy = cc.rect(arrrectMap[i].getPositionX() - arrrectMap[i].getContentSize().width / 2 * arrrectMap[i].getScaleX(),
-                            arrrectMap[i].getPositionY() - arrrectMap[i].getContentSize().height / 2 * arrrectMap[i].getScaleY(),
-                            (arrrectMap[i].getContentSize().width - 1) * arrrectMap[i].getScaleX(),
-                            (arrrectMap[i].getContentSize().height - 1) * arrrectMap[i].getScaleY());
+                        var rectEnemy = cc.rect(arrrectMap[i].getPositionX()+1 - arrrectMap[i].getContentSize().width / 2 * arrrectMap[i].getScaleX(),
+                            arrrectMap[i].getPositionY()+1 - arrrectMap[i].getContentSize().height / 2 * arrrectMap[i].getScaleY(),
+                            (arrrectMap[i].getContentSize().width - 2) * arrrectMap[i].getScaleX(),
+                            (arrrectMap[i].getContentSize().height - 2) * arrrectMap[i].getScaleY());
                         if (cc.rectIntersectsRect(rect, rectEnemy)) {
                             return false;
                         }

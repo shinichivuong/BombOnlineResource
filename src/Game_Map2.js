@@ -2,7 +2,6 @@
 //
 // var Gamelayers2 = cc.Layer.extend({
 //     init: function () {
-//         this._super();
 //         var game = this;
 //         startGame(game);
 //         score(game);

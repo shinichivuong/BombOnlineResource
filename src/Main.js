@@ -6,7 +6,7 @@ var HelloWorldLayer = cc.Layer.extend({
         var size = cc.winSize;
         var sprite = new cc.Sprite.create(res.Backgr2_png);
         sprite.setAnchorPoint(cc.p(0.5, 0.5));
-        sprite.setScale(0.8);
+        sprite.setScale(0.7);
         sprite.setPosition(cc.p(size.width / 2, size.height / 2));
         this.addChild(sprite);
         cc.audioEngine.playMusic(res.sound_main);

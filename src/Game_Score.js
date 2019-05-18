@@ -85,6 +85,8 @@ var realTimeLB = null;
 var countBomLB = null;
 var countSpeedLB = null;
 var countKillBossLB = null;
+var userNameLB=null;
+var playerLiveLB=null;
 score = function (game) {
     var size = cc.director.getWinSize();
     realTimeLB = new cc.LabelTTF(realTime.toString());
@@ -104,19 +106,36 @@ score = function (game) {
         game.addChild(countBomLB);
     },
     countItemSpeed = function (game) {
-        var size = cc.director.getWinSize();
-        countSpeedLB = new cc.LabelTTF(realTime.toString());
-        countSpeedLB.setFontSize(15);
-        countSpeedLB.setPosition(cc.p(size.width - 100, 310));
-        countSpeedLB.setColor(cc.color(0, 0, 0));
-        game.addChild(countSpeedLB);
+    var size = cc.director.getWinSize();
+    countSpeedLB = new cc.LabelTTF(realTime.toString());
+    countSpeedLB.setFontSize(15);
+    countSpeedLB.setPosition(cc.p(size.width - 100, 300));
+    countSpeedLB.setColor(cc.color(0, 0, 0));
+    game.addChild(countSpeedLB);
+},
+    userName = function (game) {
+    var size= cc.director.getWinSize();
+        userNameLB = new cc.LabelTTF("User Name");
+        userNameLB.setFontSize(20);
+        userNameLB.setPosition(cc.p(size.width - 100, 570));
+        userNameLB.setColor(cc.color(0, 0, 0));
+        game.addChild(userNameLB);
+    },
+
+    playerLive = function (game) {
+        var size= cc.director.getWinSize();
+        playerLiveLB = new cc.LabelTTF("0");
+        playerLiveLB.setFontSize(15);
+        playerLiveLB.setPosition(cc.p(size.width - 100, 360));
+        playerLiveLB.setColor(cc.color(0, 0, 0));
+        game.addChild(playerLiveLB);
     },
     countKillBoos = function (game) {
         var size = cc.director.getWinSize();
 
         countKillBossLB = new cc.LabelTTF("0");
         countKillBossLB.setFontSize(15);
-        countKillBossLB.setPosition(cc.p(size.width - 100, 290));
+        countKillBossLB.setPosition(cc.p(size.width - 100, 280));
         countKillBossLB.setColor(cc.color(0, 0, 0));
         game.addChild(countKillBossLB);
     };
