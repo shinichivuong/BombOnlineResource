@@ -1,4 +1,4 @@
-# ![][1] C++ coding style
+﻿# ![][1] C++ coding style
 
 _v0.2 - Last updated November 8, 2013_
 
@@ -2847,3 +2847,4 @@ OK, enough writing about writing code; the code itself is much more interesting.
 
 [1]: https://lh3.googleusercontent.com/-glwwzmFyUmk/UQgPnlx40uI/AAAAAAAArzg/WPRW10kkecM/s144/cocos2d-x-logo.png
 
+}}

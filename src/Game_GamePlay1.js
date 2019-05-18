@@ -132,6 +132,7 @@ var Gamelayers = cc.Layer.extend({
         countBomLB.setString((itemCount + 1));
         countSpeedLB.setString((countItemSpeddGame + 1));
         countKillBossLB.setString(countkillboss);
+        playerLiveLB.setString(countPlayerHeart);
         //Bomb nổ
         if (countHeartBoss==0){
             arrcreeps[5].setVisible(false);
@@ -279,7 +280,9 @@ AI = function (size) {
             player.getContentSize().width * player.getScaleX(),
             player.getContentSize().width * player.getScaleY());
         if (checkDie(rectHero) == false) {
+            countPlayerHeart-=1;
             player.setTexture(res.Ghost_png);
+
         }
         checkItemGame(rectHero, itemBombs);
         checkItemGame(rectHero, itemShoes);

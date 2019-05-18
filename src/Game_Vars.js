@@ -30,5 +30,5 @@ var countkillboss=0;
 var timer=0;
 var bossDie=0;
 var checkbossDie=0;
-var isBossBomb=true
-;
+var isBossBomb=true;
+var countPlayerHeart=5;
