@@ -1,7 +1,7 @@
 //
 //
 // var Gamelayers2 = cc.Layer.extend({
-//     init: function () {
+//     ctor: function () {
 //         var game = this;
 //         startGame(game);
 //         score(game);
@@ -35,8 +35,8 @@
 //                                 break;
 //
 //                             case 65:
-//                                 keyLeft = true;
 //                                 break;
+//                                 keyLeft = true;
 //                             case 68:
 //                                 keyRight = true;
 //                                 break;

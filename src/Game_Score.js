@@ -87,6 +87,8 @@ var countSpeedLB = null;
 var countKillBossLB = null;
 var userNameLB=null;
 var playerLiveLB=null;
+var countKim=5;
+var kimLB=null;
 score = function (game) {
     var size = cc.director.getWinSize();
     realTimeLB = new cc.LabelTTF(realTime.toString());
@@ -129,6 +131,14 @@ score = function (game) {
         playerLiveLB.setPosition(cc.p(size.width - 100, 360));
         playerLiveLB.setColor(cc.color(0, 0, 0));
         game.addChild(playerLiveLB);
+    },
+    kim = function (game) {
+        var size= cc.director.getWinSize();
+        kimLB = new cc.LabelTTF("5");
+        kimLB.setFontSize(15);
+        kimLB.setPosition(cc.p(size.width - 160, 260));
+        kimLB.setColor(cc.color(0, 0, 0));
+        game.addChild(kimLB);
     },
     countKillBoos = function (game) {
         var size = cc.director.getWinSize();

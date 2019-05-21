@@ -33,6 +33,7 @@ var res = {
     BeBongUp_png: "res/bebong_up.png",
     AvtBeBong1_png:"res/User/beBong2.png",
     Backgr2_png:"res/backGround.jpg",
+    win_png:"res/win.jpg",
 
     Ghost_png: "res/user/ghost2.png",
     SaxNuoc_png:"res/bebong_dead.png",
