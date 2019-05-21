@@ -138,8 +138,14 @@ var Gamelayers = cc.Layer.extend({
         game.scheduleUpdate();
     },
     update: function (dt) {
-        // if (countkillboss==20){
-        //    startGame(game);        }
+        if (countkillboss==20){
+            for (var i=0;i<arrrectMap.length;i++){
+                arrrectMap[i].setVisible(false);
+            }
+            arrMap=[];
+            arrMap=arrMap3;
+            startGame(game);
+            }
         if (countHeartBoss == 5) {
             var BossDie = cc.TintTo.create(2, -127, -255, -127);
             arrcreeps[6].runAction(BossDie);
@@ -287,7 +293,7 @@ var Gamelayers = cc.Layer.extend({
 
     startGame = function (game) {
         itemCount = 0;
-
+        countkillboss=0;
         countHeartBoss = 10;
         mytime = 0;
         mytime2 = 0;
