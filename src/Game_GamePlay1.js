@@ -126,7 +126,7 @@ var Gamelayers = cc.Layer.extend({
                                     var FadedInPlayer = cc.FadeIn.create(2);
                                     player.runAction(FadedInPlayer);
                                     countKim = countKim - 1;
-                                    speed=5;
+                                    speed=3;
                                     isAlive = true;
                                 }
 
@@ -184,11 +184,13 @@ var Gamelayers = cc.Layer.extend({
                 for (var i = 0; i < arrrectMap.length; i++) {
                     if (arrrectMap[i].getTag().toString() != 1) {
                         arrrectMap[i].setVisible(false);
+                    }
+                }
                         var BossDie = cc.TintTo.create(2, -127, -255, -127);
                         arrcreeps[6].runAction(BossDie);
                         speedBoss = 0.5;
-                    }
-                }
+
+
             }
             realTimeLB.setString("Time: " + realTime.toFixed(2));
             countBomLB.setString((itemCount + 1));
@@ -295,7 +297,7 @@ moveGame = function () {
     var rectHeroDemo = cc.rect(xR + 4 - player.getContentSize().width / 2 * player.getScaleX(),
         yR - player.getContentSize().width / 2 * player.getScaleY(),
         (player.getContentSize().width - 8) * player.getScaleX(),
-        (player.getContentSize().width - 8) * player.getScaleY());
+        (player.getContentSize().width - 15) * player.getScaleY());
     if (checkPlayerGame(rectHeroDemo) == false) {
         xR = xK;
         yR = yK;

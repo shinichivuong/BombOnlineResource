@@ -48,6 +48,7 @@ var GameMenuChosePlayer = cc.Layer.extend({
         this.addChild(ok);
 
         userNameGame= new cc.EditBox(cc.size(150,50));
+        // userNameGame.setPlaceHolderColor(cc.Color.GRAY);
         userNameGame.setInputMode(cc.KEYBOARD_RETURNTYPE_DEFAULT);
         userNameGame.setInputFlag(cc.EDITBOX_INPUT_FLAG_INITIAL_CAPS_SENTENCE);
         userNameGame.setPosition(800,220);
