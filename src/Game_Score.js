@@ -151,10 +151,38 @@ score = function (game) {
     },
     gameover = function (game) {
     cc.audioEngine.playMusic(res.sound_lose);
-        highScores="User: " +userNameLB.getString()+" Score: "+countkillboss.toString();
+        highScores="User: " +userNameLB.getString()+"        Score: "+countkillboss.toString();
         arrHighScores.push(highScores);
 
         var overgame = new cc.LabelTTF("GAME OVER");
+        overgame.setFontSize(30);
+        overgame.setAnchorPoint(cc.p(0.5, 0.5));
+        overgame.setColor(cc.color(0, 0, 0));
+        overgame.setPosition(cc.p(size.width / 2 - 50, size.height / 2 + 60));
+        game.addChild(overgame);
+
+
+        var player = new cc.LabelTTF("User Name:" + userNameLB.getString());
+        player.setAnchorPoint(cc.p(0.5, 0.5));
+        player.setFontSize(20);
+        player.setPosition(cc.p(size.width / 2 - 50, size.height / 2 + 30));
+        player.setColor(cc.color(0, 0, 0));
+        game.addChild(player);
+
+        var score = new cc.LabelTTF("Score: " + countkillboss.toString());
+        score.setFontSize(20);
+        score.setAnchorPoint(cc.p(0.5, 0.5));
+        score.setPosition(cc.p(size.width / 2 - 50, size.height / 2));
+        score.setColor(cc.color(0, 0, 0));
+        game.addChild(score);
+
+    },
+    gamewin = function (game) {
+        cc.audioEngine.playMusic(res.sound_win);
+        highScores="User: " +userNameLB.getString()+"         Score: "+countkillboss.toString();
+        arrHighScores.push(highScores);
+
+        var overgame = new cc.LabelTTF("VICTORY");
         overgame.setFontSize(30);
         overgame.setAnchorPoint(cc.p(0.5, 0.5));
         overgame.setColor(cc.color(0, 0, 0));

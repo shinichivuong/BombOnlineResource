@@ -19,7 +19,7 @@ var GameMenuHighScore = cc.Layer.extend({
             overgame.setFontSize(25);
             overgame.setAnchorPoint(cc.p(0, 0.5));
             overgame.setColor(cc.color(0, 0, 0));
-            overgame.setPosition(cc.p(500, 500-30*i));
+            overgame.setPosition(cc.p(300, 500-30*i));
             this.addChild(overgame);
         }
     },

@@ -46,3 +46,4 @@ var arrPlayer=[];
 var avtplayerback=null;
 var arrHighScores=[];
 var highScores;
+var gameWinNow=null;

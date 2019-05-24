@@ -142,13 +142,19 @@ var Gamelayers = cc.Layer.extend({
         game.scheduleUpdate();
     },
     update: function (dt) {
-        if (gameOverNow == true) {
+        if (gameOverNow == true && gameWinNow==true) {
 
             if (countPlayerHeart == 0) {
                 gameover(game);
                 var scene= new GameMenuHighScore;
                 cc.director.pushScene(new cc.TransitionFade(10,scene));
                 gameOverNow = false;
+            }
+            if (countkillboss==6){
+                gamewin(game);
+                var scene= new GameMenuHighScore;
+                cc.director.pushScene(new cc.TransitionFade(10,scene));
+                gameWinNow=false;
             }
             for (var k = 0; k < creepLive.length; k++) {
                 creepLive[k] += dt;
@@ -300,6 +306,7 @@ moveGame = function () {
 
     startGame = function (game) {
         gameOverNow = true;
+        gameWinNow=true;
         itemCount = 0;
         countkillboss = 0;
         countHeartBoss = 10;

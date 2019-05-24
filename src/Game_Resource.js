@@ -76,6 +76,7 @@ var res = {
     Sound_item: "res/sound/item.wav",
     sound_main: "res/sound/menu.wav",
     sound_lose: "res/sound/bomDrink.wav",
+    sound_win: "res/sound/win.wav",
 
     Chat_png:"res/chat-28317513.jpg",
 
