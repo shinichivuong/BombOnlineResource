@@ -31,9 +31,31 @@ var res = {
     BeBongLeft_png: "res/bebong_left.png",
     BeBongRight_png: "res/bebong_right.png",
     BeBongUp_png: "res/bebong_up.png",
+    //tia chop
+   TiaChopUp_png: "res/User/tiachop_up.png",
+   TiaChopRight_png: "res/User/tiachop_right.png",
+   TiaChopLeft_png: "res/User/tiachop_left.png",
+   TiaChopDown_png: "res/User/tiachop_down.png",
+    //khokho
+    KhoKhoUp_png: "res/User/khokho_up.png",
+    KhoKhoRight_png: "res/User/khokho_right.png",
+    KhoKhoLeft_png: "res/User/khokho_left.png",
+    KhoKhoDown_png: "res/User/khokho_down.png",
+
     AvtBeBong1_png:"res/User/beBong2.png",
     Backgr2_png:"res/backGround.jpg",
     win_png:"res/win.jpg",
+    //player chose
+    bebong1_png: "res/User/beBong1.png",
+    bebong2_png: "res/User/beBong2.png",
+    tiachop1_png: "res/User/tiaChop1.png",
+    tiachop2_png: "res/User/tiaChop2.png",
+    khoKho1_png: "res/User/khoKho1.png",
+    khoKho2_png: "res/User/khoKho2.png",
+//chose picture
+    opbebong_png: "res/User/opbebong.png",
+    opkhokho_png: "res/User/opkhokho.png",
+    optiachop_png: "res/User/optiachop.png",
 
     Ghost_png: "res/user/ghost2.png",
     SaxNuoc_png:"res/bebong_dead.png",
@@ -48,10 +70,12 @@ var res = {
     BigBossHeart_png:"res/Boss/heart_boss.png",
     //sound
     Playgame_sound: "res/sound/playgame.wav",
+    Sound_Monsterdie:"res/sound/monster_die.wav",
     Sound_creatBoom: "res/sound/newbomb.wav",
     Sound_bombang:"res/sound/bomb_bang.wav",
     Sound_item: "res/sound/item.wav",
     sound_main: "res/sound/menu.wav",
+    sound_lose: "res/sound/bomDrink.wav",
 
     Chat_png:"res/chat-28317513.jpg",
 
@@ -76,6 +100,8 @@ var res = {
     Map_png: "res/background_Play3.png",
     Map2_png: "res/img-1306336479-2.jpg",
     Help_png: "res/background_option.png",
+    BGHighScore_png: "res/background_hightscore.png",
+    BGChosePlayer_png: "res/background_Actor.png",
 
     BtnCancel_png: "res/cancel1.png",
     BtnCancel2_png: "res/cancel2.png",

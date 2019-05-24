@@ -5,6 +5,8 @@ var win = null;
 var timeplayerdie;
 var Gamelayers = cc.Layer.extend({
     init: function () {
+        gameOverNow = true;
+        size = cc.director.getWinSize();
         this._super();
         game = this;
         startGame(game);
@@ -116,16 +118,18 @@ var Gamelayers = cc.Layer.extend({
                             case 90:
                                 keyZ = false;
                             {
-                                player.setPosition(cc.p(795, 75));
-                                player.setOpacity(0);
-                                player.setTexture(res.BeBongDown_png);
+                                if (isAlive==false){
+                                    player.setPosition(cc.p(795, 75));
+                                    player.setOpacity(0);
+                                    player.setTexture(res.BeBongDown_png);
 
-                                var FadedInPlayer = cc.FadeIn.create(2);
-                                player.runAction(FadedInPlayer);
+                                    var FadedInPlayer = cc.FadeIn.create(2);
+                                    player.runAction(FadedInPlayer);
+                                    countKim = countKim - 1;
+                                    speed=5;
+                                    isAlive = true;
+                                }
 
-                                speed=2;
-                                countKim= countKim-1;
-                                isAlive=true;
                             }
                                 break;
                             case 88:
@@ -138,122 +142,117 @@ var Gamelayers = cc.Layer.extend({
         game.scheduleUpdate();
     },
     update: function (dt) {
-        if (countkillboss==20){
-            for (var i=0;i<arrrectMap.length;i++){
-                arrrectMap[i].setVisible(false);
-            }
-            arrMap=[];
-            arrMap=arrMap3;
-            startGame(game);
-            }
-        if (countHeartBoss == 5) {
-            var BossDie = cc.TintTo.create(2, -127, -255, -127);
-            arrcreeps[6].runAction(BossDie);
-            speedBoss = 0.5;
-        }
-        if (arrcreeps.length == 0) {
-            win.setVisible(true);
-        }
-        for (var k = 0; k < creepLive.length; k++) {
-            creepLive[k] += dt;
-            if (creepLive[k] > 0.1 && k != 6) {
-                arrcreeps[k].setVisible(false);
-                creepLive[k] = 0;
+        if (gameOverNow == true) {
 
+            if (countPlayerHeart == 0) {
+                gameover(game);
+                var scene= new GameMenuHighScore;
+                cc.director.pushScene(new cc.TransitionFade(10,scene));
+                gameOverNow = false;
             }
-        }
-        var size = cc.director.getWinSize();
-        mytime += dt;
-        timer += dt;
-        bossDie += dt;
-        myTimePlayer += dt;
-        myTimePlayerSax += dt;
-        timeplayerdie += dt;
-        move();
-        playertoDie();
-
-        AI(size);
-        //set thời gian game
-        realTime += dt;
-
-        if (countHeartBoss==5){
-            for (var i=0;i<arrrectMap.length;i++){
-                if (arrrectMap[i].getTag().toString()!=1){
-                    arrrectMap[i].setVisible(false);
+            for (var k = 0; k < creepLive.length; k++) {
+                creepLive[k] += dt;
+                if (creepLive[k] == 0.1 && k != 6) {
+                    countkillboss = countkillboss + 1;
+                    arrcreeps[k].setVisible(false);
+                    cc.audioEngine.playEffect(res.Sound_Monsterdie);
+                    creepLive[k] = 2;
 
                 }
             }
-        }
-        realTimeLB.setString("Time: " + realTime.toFixed(2));
-        countBomLB.setString((itemCount + 1));
-        countSpeedLB.setString((countItemSpeddGame + 1));
-        countKillBossLB.setString(countkillboss);
-        kimLB.setString("Kim(press Z):"+countKim);
-        playerLiveLB.setString(countPlayerHeart);
-        //Bomb nổ
-        if (countHeartBoss == 0) {
-            arrcreeps[6].setVisible(false);
-        }
-        for (var i = 0; i < arrBombs.length; i++) {
-            if (timeBB[i] == 120) {
-                arrBombs[i].setTexture(res.BoomBang_png);
-                if (myTimePlayerSax - myCurrentPlayerSax > 2) {
-                    isAlive = checkPlayerSax();
+            var size = cc.director.getWinSize();
+            mytime += dt;
+            timer += dt;
+            bossDie += dt;
+            myTimePlayer += dt;
+            myTimePlayerSax += dt;
+            timeplayerdie += dt;
+            move();
+            playertoDie();
 
+            AI(size);
+            //set thời gian game
+            realTime += dt;
+
+            if (countHeartBoss == 5) {
+                for (var i = 0; i < arrrectMap.length; i++) {
+                    if (arrrectMap[i].getTag().toString() != 1) {
+                        arrrectMap[i].setVisible(false);
+                        var BossDie = cc.TintTo.create(2, -127, -255, -127);
+                        arrcreeps[6].runAction(BossDie);
+                        speedBoss = 0.5;
+                    }
                 }
-
-                destroybox();
-                // Boss
             }
-            if (timeBB[i] > 120) {
-                for (var k = 0; k < arrcreeps.length; k++) {
-                    if (arrcreeps[k].visible == true) {
-                        var rectEnemy2 = cc.rect(arrcreeps[k].getPositionX() - arrcreeps[k].getContentSize().width / 2 * arrcreeps[k].getScaleX(),
-                            arrcreeps[k].getPositionY() - arrcreeps[k].getContentSize().height / 2 * arrcreeps[k].getScaleY(),
-                            arrcreeps[k].getContentSize().width * arrcreeps[k].getScaleX(),
-                            arrcreeps[k].getContentSize().width * arrcreeps[k].getScaleY());
-                        if (checkBoom(rectEnemy2) == false) {
-                            creepLive[k] = 0;
-                            if (k == 6) {
-                                heart[countHeartBoss - 1].setVisible(false);
-                                isBossBomb = false;
-                            }
-                            else {
-                                arrcreeps[k].setTexture(res.GhostCr_png);
-                                countkillboss = countkillboss + 1;
+            realTimeLB.setString("Time: " + realTime.toFixed(2));
+            countBomLB.setString((itemCount + 1));
+            countSpeedLB.setString((countItemSpeddGame + 1));
+            countKillBossLB.setString(countkillboss);
+            kimLB.setString("Kim(press Z):" + countKim);
+            playerLiveLB.setString(countPlayerHeart);
+            //Bomb nổ
+            if (countHeartBoss == 0) {
+                arrcreeps[6].setVisible(false);
+            }
+            for (var i = 0; i < arrBombs.length; i++) {
+                if (timeBB[i] == 120) {
+                    cc.audioEngine.playEffect(res.Sound_bombang);
+                    cc.audioEngine.setEffectsVolume(0.6);
+                    arrBombs[i].setTexture(res.BoomBang_png);
+                    if (myTimePlayerSax - myCurrentPlayerSax > 2) {
+                        isAlive = checkPlayerSax();
+
+                    }
+
+                    destroybox();
+                    // Boss
+                }
+                if (timeBB[i] > 120) {
+                    for (var k = 0; k < arrcreeps.length; k++) {
+                        if (arrcreeps[k].visible == true) {
+                            var rectEnemy2 = cc.rect(arrcreeps[k].getPositionX() - arrcreeps[k].getContentSize().width / 2 * arrcreeps[k].getScaleX(),
+                                arrcreeps[k].getPositionY() - arrcreeps[k].getContentSize().height / 2 * arrcreeps[k].getScaleY(),
+                                arrcreeps[k].getContentSize().width * arrcreeps[k].getScaleX(),
+                                arrcreeps[k].getContentSize().width * arrcreeps[k].getScaleY());
+                            if (checkBoom(rectEnemy2) == false) {
+                                creepLive[k] = 0;
+                                if (k == 6) {
+                                    heart[countHeartBoss - 1].setVisible(false);
+                                    isBossBomb = false;
+                                }
+                                else {
+                                    arrcreeps[k].setTexture(res.GhostCr_png);
+                                }
 
                             }
 
                         }
-
                     }
                 }
-            }
 
 
-            if (timeBB[i] == 130) {
-                arrBombs[i].setVisible(false);
-                countBomb = countBomb + 1;
-                if (isBossBomb == false) {
-                    countHeartBoss -= 1;
+                if (timeBB[i] == 130) {
+                    arrBombs[i].setVisible(false);
+                    countBomb = countBomb + 1;
+                    if (isBossBomb == false) {
+                        countHeartBoss -= 1;
+
+                    }
+                    delete timeBB[i];
 
                 }
-                delete timeBB[i];
+                isBossBomb = true;
+            }
+
+// nhan vat khi trung boom
+            if (isAlive == false) {
+                player.setTexture(res.SaxNuoc_png);
+                myCurrentPlayerSax = myTimePlayerSax;
+                speed = 0.5;
 
             }
-            isBossBomb = true;
-        }
-
-//nhan vat khi trung boom
-        if (isAlive == false) {
-            player.setTexture(res.SaxNuoc_png);
-            speed = 0.5;
-            myCurrentPlayerSax = myTimePlayerSax;
-
 
         }
-
-
 
     },
     touchEvent: function (sender, type) {
@@ -265,35 +264,44 @@ var Gamelayers = cc.Layer.extend({
                 cc.director.popScene();
                 break;
         }
+    },
+    textFieldEvent: function (sender, type) {
+        switch (type) {
+            case ccui.TextField.EVENT_ATTACH_WITH_IME:
+                break;
+            case ccui.TextField.EVENT_INSERT_TEXT:
+                cc.log(userNameLB.string);
+                break;
+        }
     }
 });
 
 
-    moveGame = function () {
+moveGame = function () {
+    checkItemGame(rectHero, itemBombs);
+    checkItemGame(rectHero, itemShoes);
+    x_sprite = player.getPosition().x;
+    y_sprite = player.getPosition().y;
+    xK = x_sprite;
+    yK = y_sprite;
+    xR = (x_sprite + speedX * speed) * player.getScaleX();
+    yR = (y_sprite + speedY * speed) * player.getScaleY();
+    var rectHeroDemo = cc.rect(xR + 4 - player.getContentSize().width / 2 * player.getScaleX(),
+        yR - player.getContentSize().width / 2 * player.getScaleY(),
+        (player.getContentSize().width - 8) * player.getScaleX(),
+        (player.getContentSize().width - 8) * player.getScaleY());
+    if (checkPlayerGame(rectHeroDemo) == false) {
+        xR = xK;
+        yR = yK;
 
-        checkItemGame(rectHero, itemBombs);
-        checkItemGame(rectHero, itemShoes);
-        x_sprite = player.getPosition().x;
-        y_sprite = player.getPosition().y;
-        xK = x_sprite;
-        yK = y_sprite;
-        xR = (x_sprite + speedX * speed)*player.getScaleX();
-        yR = (y_sprite + speedY * speed)*player.getScaleY();
-        var rectHeroDemo = cc.rect(xR+4 - player.getContentSize().width / 2 * player.getScaleX(),
-            yR+4 - player.getContentSize().width / 2 * player.getScaleY(),
-            (player.getContentSize().width-8)  * player.getScaleX(),
-            (player.getContentSize().width-8) * player.getScaleY());
-        if (checkPlayerGame(rectHeroDemo) == false) {
-            xR = xK;
-            yR = yK;
-
-        }
+    }
     player.setPosition(cc.p(xR, yR));
-    },
+},
 
     startGame = function (game) {
+        gameOverNow = true;
         itemCount = 0;
-        countkillboss=0;
+        countkillboss = 0;
         countHeartBoss = 10;
         mytime = 0;
         mytime2 = 0;
@@ -305,7 +313,6 @@ var Gamelayers = cc.Layer.extend({
         checkPlayer = true;
         countBomb = 0;
         countItemSpeddGame = 0;
-        countkillboss = 0;
         timer = 0;
         bossDie = 0;
         checkbossDie = 0;
@@ -320,7 +327,7 @@ var Gamelayers = cc.Layer.extend({
         timeBB = [];
 
         var size = cc.director.getWinSize();
-
+        cc.audioEngine.playMusic(res.Playgame_sound);
 
         var backGr = new cc.Sprite(res.Map_png);
         backGr.setAnchorPoint(cc.p(0.5, 0.5));
@@ -343,7 +350,8 @@ var Gamelayers = cc.Layer.extend({
         cancel.y = 50;
         cancel.addTouchEventListener(game.touchEvent, game);
         game.addChild(cancel);
-        var avtPlayer = new cc.Sprite(res.AvtBeBong1_png);
+
+        avtPlayer = new cc.Sprite(avtplayerback);
         avtPlayer.setAnchorPoint(cc.p(0.5, 0.5));
         avtPlayer.setPosition(size.width - 100, size.height - 170);
         avtPlayer.setScale(0.4);
@@ -382,9 +390,9 @@ var Gamelayers = cc.Layer.extend({
                     timeBB[i] += 1;
 
                 }
-               if(keyZ){
+                if (keyZ) {
 
-               }
+                }
                 if (keyRight) {
                     speedX = 1;
                 }
@@ -415,16 +423,16 @@ var Gamelayers = cc.Layer.extend({
                 }
             },
             setLeft = function () {
-                player.setTexture(res.BeBongLeft_png);
+                player.setTexture(arrPlayer[1]);
             },
             setRight = function () {
-                player.setTexture(res.BeBongRight_png);
+                player.setTexture(arrPlayer[2]);
             },
             setUp = function () {
-                player.setTexture(res.BeBongUp_png);
+                player.setTexture(arrPlayer[3]);
             },
             setDown = function () {
-                player.setTexture(res.BeBongDown_png);
+                player.setTexture(arrPlayer[0]);
             },
 
 

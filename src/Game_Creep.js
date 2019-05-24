@@ -92,7 +92,7 @@ addCreep = function (game) {
                     point.y - arrcreeps[i].getContentSize().width / 2 * arrcreeps[i].getScaleY(),
                     arrcreeps[i].getContentSize().width * arrcreeps[i].getScaleX(),
                     arrcreeps[i].getContentSize().width * arrcreeps[i].getScaleY());
-                if (checkPlayerGame(rectCreep) == false || checkBoom(rectCreep) == false || point.x > size.width-230 || point.x < 0+70 || point.y < 0+30 || point.y > size.height-70) {
+                if (checkPlayerGame(rectCreep) == false || checkBoom(rectCreep) == false || point.x > size.width - 230 || point.x < 0 + 70 || point.y < 0 + 30 || point.y > size.height - 70) {
                     point.x = skipeX;
                     point.y = skipeY;
                 }
@@ -109,6 +109,7 @@ addCreep = function (game) {
 
             }
         }
+
 
     },
     bossHeart = function (game) {

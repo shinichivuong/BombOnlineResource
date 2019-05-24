@@ -34,7 +34,7 @@ additemsBoom = function(game) {
                     (items[i].getContentSize().width - 1) * items[i].getScaleX(),
                     (items[i].getContentSize().height - 1) * items[i].getScaleY());
                 if (cc.rectIntersectsRect(rect, rectEnemy)) {
-                    cc.audioEngine.playMusic(res.Sound_item);
+                    cc.audioEngine.playEffect(res.Sound_item);
                     items[i].visible=false;
                     if (items==itemShoes){
                         speed+=1;

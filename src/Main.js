@@ -10,6 +10,7 @@ var HelloWorldLayer = cc.Layer.extend({
         sprite.setPosition(cc.p(size.width / 2, size.height / 2));
         this.addChild(sprite);
         cc.audioEngine.playMusic(res.sound_main);
+        cc.audioEngine.setMusicVolume(0.3);
 
         var menuStart = new cc.MenuItemImage(res.Start_png, res.Start2_png, play);
         var menuImage = new cc.MenuItemImage(res.HightScore_png, res.HightScore2_png, hightscore);
@@ -46,15 +47,20 @@ var HelloWorldLayer = cc.Layer.extend({
     }
 });
 var play = function () {
-    var scene = new Gamescenes;
-    cc.director.pushScene(scene);
-};
+    var scene= new GameMenuChosePlayer;
+    cc.director.pushScene(new cc.TransitionFade(1,scene));
+}
 var hightscore = function () {
+    var scene= new GameMenuHighScore;
+    cc.director.pushScene(new cc.TransitionFade(1,scene));
 }
 var exit = function () {
-
+    var scene= new GameMenuChosePlayer;
+    cc.director.pushScene(scene);
 }
 var option = function () {
+    var scene= new GameHelpScene;
+    cc.director.pushScene(new cc.TransitionFade(1,scene));
 }
 var HelloWorldScene = cc.Scene.extend({
     onEnter: function () {

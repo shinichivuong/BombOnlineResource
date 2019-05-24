@@ -5,7 +5,7 @@
 //     game.addChild(player,2);
 // }varr
 creatPlayer = function (game) {
-    player = new cc.Sprite.create(res.BeBongDown_png);
+    player = new cc.Sprite.create(arrPlayer[0]);
     player.setAnchorPoint(cc.p(0.5, 0.5));
     game.addChild(player);
     player.setPosition(cc.p(750, 75));
@@ -42,7 +42,7 @@ creatPlayer = function (game) {
         rectHero = cc.rect(player.getPositionX() - player.getContentSize().width / 2 * player.getScaleX(),
             player.getPositionY() - player.getContentSize().width / 2 * player.getScaleY(),
             player.getContentSize().width * player.getScaleX(),
-            player.getContentSize().width * player.getScaleY());
+            (player.getContentSize().width-4) * player.getScaleY());
         if (checkDie(rectHero) == false) {
 
 
