@@ -31,8 +31,8 @@ additemsBoom = function(game) {
             if (items[i].visible == true) {
                 var rectEnemy = cc.rect(items[i].getPositionX() - items[i].getContentSize().width / 2 * items[i].getScaleX(),
                     items[i].getPositionY() - items[i].getContentSize().height / 2 * items[i].getScaleY(),
-                    (items[i].getContentSize().width - 1) * items[i].getScaleX(),
-                    (items[i].getContentSize().height - 1) * items[i].getScaleY());
+                    (items[i].getContentSize().width - 4) * items[i].getScaleX(),
+                    (items[i].getContentSize().height - 4) * items[i].getScaleY());
                 if (cc.rectIntersectsRect(rect, rectEnemy)) {
                     cc.audioEngine.playEffect(res.Sound_item);
                     items[i].visible=false;

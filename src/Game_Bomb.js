@@ -3,7 +3,7 @@ var timeBB=[];
 creatBoom = function (game) {
     if (timer - mycurrentime > 0.5) {
         timeBB[timeBB.length]=0;
-        cc.audioEngine.playMusic(res.Sound_creatBoom);
+        cc.audioEngine.playEffect(res.Sound_creatBoom);
         boom = new cc.Sprite.create(res.Boom_png);
         boom.setAnchorPoint(cc.p(0.5, 0.5));
         boom.setTag(h);

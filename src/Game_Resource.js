@@ -69,7 +69,7 @@ var res = {
     BigBossUp_png:"res/Boss/boss_up.png",
     BigBossHeart_png:"res/Boss/heart_boss.png",
     //sound
-    Playgame_sound: "res/sound/playgame.wav",
+    Playgame_sound: "res/sound/soundGame.wav",
     Sound_Monsterdie:"res/sound/monster_die.wav",
     Sound_creatBoom: "res/sound/newbomb.wav",
     Sound_bombang:"res/sound/bomb_bang.wav",

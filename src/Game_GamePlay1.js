@@ -119,15 +119,18 @@ var Gamelayers = cc.Layer.extend({
                                 keyZ = false;
                             {
                                 if (isAlive==false){
-                                    player.setPosition(cc.p(795, 75));
-                                    player.setOpacity(0);
-                                    player.setTexture(res.BeBongDown_png);
+                                    if (countKim>0){
+                                        player.setPosition(cc.p(795, 75));
+                                        player.setOpacity(0);
+                                        player.setTexture(res.BeBongDown_png);
 
-                                    var FadedInPlayer = cc.FadeIn.create(2);
-                                    player.runAction(FadedInPlayer);
-                                    countKim = countKim - 1;
-                                    speed=3;
-                                    isAlive = true;
+                                        var FadedInPlayer = cc.FadeIn.create(2);
+                                        player.runAction(FadedInPlayer);
+                                        countKim = countKim - 1;
+                                        speed=3;
+                                        isAlive = true;
+                                    }
+
                                 }
 
                             }
@@ -297,7 +300,7 @@ moveGame = function () {
     var rectHeroDemo = cc.rect(xR + 4 - player.getContentSize().width / 2 * player.getScaleX(),
         yR - player.getContentSize().width / 2 * player.getScaleY(),
         (player.getContentSize().width - 8) * player.getScaleX(),
-        (player.getContentSize().width - 15) * player.getScaleY());
+        (player.getContentSize().width - 20) * player.getScaleY());
     if (checkPlayerGame(rectHeroDemo) == false) {
         xR = xK;
         yR = yK;
@@ -336,7 +339,7 @@ moveGame = function () {
         timeBB = [];
 
         var size = cc.director.getWinSize();
-        cc.audioEngine.playMusic(res.Playgame_sound);
+        cc.audioEngine.playMusic(res.Playgame_sound,3);
 
         var backGr = new cc.Sprite(res.Map_png);
         backGr.setAnchorPoint(cc.p(0.5, 0.5));
