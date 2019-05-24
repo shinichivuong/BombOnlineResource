@@ -7,7 +7,7 @@ creatBoom = function (game) {
         boom = new cc.Sprite.create(res.Boom_png);
         boom.setAnchorPoint(cc.p(0.5, 0.5));
         boom.setTag(h);
-        boom.setPosition(cc.p(x_sprite, y_sprite));
+        boom.setPosition(cc.p(x_sprite, y_sprite-10));
         game.addChild(boom);
         arrBombs.push(boom);
         mycurrentime = timer;
