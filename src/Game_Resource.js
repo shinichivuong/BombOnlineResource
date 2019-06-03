@@ -90,6 +90,7 @@ var res = {
     ItemBoom_png: "res/items/item_bomb.gif",
     ItemSpeed_png: "res/items/item_bombsize.gif",
     ItemShoe_png: "res/items/item_shoe.gif",
+    ItemBoomSize_png: "res/items/item_bombsize.gif",
 
     Time_png: "res/avatar_icon.png",
 

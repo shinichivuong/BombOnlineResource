@@ -1,4 +1,5 @@
 itemCount=0;
+countBoomSize=1;
 additemsBoom = function(game) {
     for (var i = 0; i < 8; i++) {
         itemBombs[i] = new cc.Sprite.create(res.ItemBoom_png);
@@ -26,6 +27,19 @@ additemsBoom = function(game) {
         itemShoes[1].setPosition(cc.p(835, 210));
         itemShoes[3].setPosition(cc.p(475, 210));
     },
+    additemsBoomSize = function(game) {
+        for (var i = 0; i < 6; i++) {
+            itemBombsizes[i] = new cc.Sprite.create(res.ItemBoomSize_png);
+            itemBombsizes[i].setAnchorPoint(cc.p(0.5, 0.5));
+            game.addChild(itemBombsizes[i]);
+
+        }
+        itemBombsizes[0].setPosition(cc.p(295, 75));
+        itemBombsizes[1].setPosition(cc.p(835, 255));
+        itemBombsizes[3].setPosition(cc.p(475, 255));
+        itemBombsizes[4].setPosition(cc.p(835, 300));
+        itemBombsizes[5].setPosition(cc.p(835, 345));
+    },
     checkItemGame = function (rect,items) {
         for (var i = 0; i < items.length; i++) {
             if (items[i].visible == true) {
@@ -43,6 +57,10 @@ additemsBoom = function(game) {
                     if (items==itemBombs){
                         countBomb+=1;
                         itemCount+=1;
+                    }
+                    if (items==itemBombsizes){
+                        countBoomSize+=1
+                        cc.log(countBoomSize);
                     }
                     return false;
                 }

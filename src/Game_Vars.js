@@ -24,6 +24,7 @@ var checkPlayer = true;
 var player;
 var itemBombs = [];
 var itemShoes=[];
+var itemBombsizes=[];
 var countBomb=0;
 var countItemSpeddGame=0;
 var countkillboss=0;

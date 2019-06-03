@@ -33,7 +33,7 @@ creatPlayer = function (game) {
             player.getPositionY() - player.getContentSize().height / 2 * player.getScaleY(),
             player.getContentSize().width * player.getScaleX(),
             player.getContentSize().height / 3 * player.getScaleY());
-        if (checkBoom(rectHero) == false) {
+        if (checkBomNew(rectHero) == false) {
             return false;
         }
         return true;

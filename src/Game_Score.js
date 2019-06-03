@@ -85,6 +85,7 @@ var realTimeLB = null;
 var countBomLB = null;
 var countSpeedLB = null;
 var countKillBossLB = null;
+var countBomSizeLB=null;
 var userNameLB = null;
 var playerLiveLB = null;
 var countKim = 5;
@@ -112,6 +113,13 @@ score = function (game) {
         countSpeedLB.setPosition(cc.p(size.width - 100, 300));
         countSpeedLB.setColor(cc.color(0, 0, 0));
         game.addChild(countSpeedLB);
+    },
+    countItemBomSize=function (game) {
+        countBomSizeLB= new cc.LabelTTF("0");
+        countBomSizeLB.setFontSize(15);
+        countBomSizeLB.setPosition(cc.p(size.width-100,320));
+        countBomSizeLB.setColor(cc.color(0,0,0));
+        game.addChild(countBomSizeLB);
     },
     userName = function (game) {
         userNameLB= new cc.LabelTTF();
