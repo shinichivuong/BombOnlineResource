@@ -7,8 +7,9 @@
 creatPlayer = function (game) {
     player = new cc.Sprite.create(arrPlayer[0]);
     player.setAnchorPoint(cc.p(0.5, 0.5));
+    player.setLocalZOrder(1);
     game.addChild(player);
-    player.setPosition(cc.p(750, 75));
+    player.setPosition(cc.p(750, 120));
 
 
 },
@@ -46,7 +47,7 @@ creatPlayer = function (game) {
         if (checkDie(rectHero) == false) {
 
 
-                player.setPosition(cc.p(795, 75));
+                player.setPosition(cc.p(795, 120));
                 player.setOpacity(0);
                 player.setTexture(res.BeBongDown_png);
 

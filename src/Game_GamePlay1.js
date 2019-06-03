@@ -121,7 +121,7 @@ var Gamelayers = cc.Layer.extend({
                             {
                                 if (isAlive == false) {
                                     if (countKim > 0) {
-                                        player.setPosition(cc.p(795, 75));
+                                        player.setPosition(cc.p(795, 120));
                                         player.setOpacity(0);
                                         player.setTexture(res.BeBongDown_png);
 
@@ -161,12 +161,12 @@ var Gamelayers = cc.Layer.extend({
                 gameWinNow = false;
             }
             for (var k = 0; k < creepLive.length; k++) {
-                    creepLive[k] += dt;
-                if (creepLive[k] > 0.1 && k != 6 &&creepLive[k]<0.3) {
+                creepLive[k] += dt;
+                if (creepLive[k] > 0.1 && k != 6 && creepLive[k] < 0.3) {
                     countkillboss = countkillboss + 1;
                     arrcreeps[k].setVisible(false);
                     cc.audioEngine.playEffect(res.Sound_Monsterdie);
-                    creepLive[k]=2;
+                    creepLive[k] = 2;
 
                 }
             }
@@ -209,9 +209,9 @@ var Gamelayers = cc.Layer.extend({
             }
             for (var i = 0; i < arrBombs.length; i++) {
 
+
                 if (timeBB[i] == 120) {
                     checkwave(i);
-
                     boomSize(i);
 
                     cc.audioEngine.playEffect(res.Sound_bombang);
@@ -271,7 +271,6 @@ var Gamelayers = cc.Layer.extend({
                 player.setTexture(res.SaxNuoc_png);
                 myCurrentPlayerSax = myTimePlayerSax;
                 speed = 0.5;
-
             }
 
         }
@@ -309,11 +308,11 @@ moveGame = function () {
     yK = y_sprite;
     xR = (x_sprite + speedX * speed) * player.getScaleX();
     yR = (y_sprite + speedY * speed) * player.getScaleY();
-    var rectHeroDemo = cc.rect(xR + 4 - player.getContentSize().width / 2 * player.getScaleX(),
-        yR - player.getContentSize().width / 2 * player.getScaleY(),
+    var rectHeroDemo = cc.rect(xR + 10 - player.getContentSize().width / 2 * player.getScaleX(),
+        yR - player.getContentSize().height / 2 * player.getScaleY(),
         (player.getContentSize().width - 20) * player.getScaleX(),
         20 * player.getScaleY());
-    if (checkPlayerGame(rectHeroDemo) == false) {
+    if (checkMap(rectHeroDemo) == false) {
         xR = xK;
         yR = yK;
 
@@ -322,6 +321,14 @@ moveGame = function () {
 },
 
     startGame = function (game) {
+        bomup = [];
+        bomleft = [];
+        bomright = [];
+        bomdown = [];
+        sizelefts = [];
+        sizeups = [];
+        sizedowns = [];
+        sizerights = [];
         gameOverNow = true;
         gameWinNow = true;
         itemCount = 0;
@@ -337,7 +344,7 @@ moveGame = function () {
         checkPlayer = true;
         countBomb = 0;
         countItemSpeddGame = 0;
-        countBoomSize=1;
+        countBoomSize = 1;
         timer = 0;
         bossDie = 0;
         checkbossDie = 0;
@@ -361,9 +368,11 @@ moveGame = function () {
         additemsBoom(game);
         additemsShoe(game);
         additemsBoomSize(game);
+
+
+        addCreep(game);
         creatMap(game, arrMap);
         creatPlayer(game);
-        addCreep(game);
         userName(game);
         bossHeart(game);
 
@@ -440,7 +449,7 @@ moveGame = function () {
                     moveGame();
 
                 }
-                if (keySpace) {
+                if (keySpace) {9
                     if (arrBombs.length <= countBomb && checkBombSmall() == true) {
                         creatBoom(game);
                     }
@@ -460,7 +469,7 @@ moveGame = function () {
             },
 
 
-            checkPlayerGame = function (rect) {
+            checkMap = function (rect) {
                 for (var i = 0; i < arrrectMap.length; i++) {
                     if (arrrectMap[i].visible == true) {
                         var rectEnemy = cc.rect((arrrectMap[i].getPositionX() + 1) - arrrectMap[i].getContentSize().width / 2 * arrrectMap[i].getScaleX(),

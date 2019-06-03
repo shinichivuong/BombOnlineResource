@@ -28,7 +28,7 @@ additemsBoom = function(game) {
         itemShoes[3].setPosition(cc.p(475, 210));
     },
     additemsBoomSize = function(game) {
-        for (var i = 0; i < 6; i++) {
+        for (var i = 0; i < 7; i++) {
             itemBombsizes[i] = new cc.Sprite.create(res.ItemBoomSize_png);
             itemBombsizes[i].setAnchorPoint(cc.p(0.5, 0.5));
             game.addChild(itemBombsizes[i]);
@@ -39,6 +39,8 @@ additemsBoom = function(game) {
         itemBombsizes[3].setPosition(cc.p(475, 255));
         itemBombsizes[4].setPosition(cc.p(835, 300));
         itemBombsizes[5].setPosition(cc.p(835, 345));
+        itemBombsizes[6].setPosition(cc.p(475, 345));
+        itemBombsizes[6].setPosition(cc.p(520, 345));
     },
     checkItemGame = function (rect,items) {
         for (var i = 0; i < items.length; i++) {
