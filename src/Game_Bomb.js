@@ -157,7 +157,7 @@ creatBoom = function (game) {
 
                 }
             }
-            
+
         }
         return true;
     };
