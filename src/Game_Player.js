@@ -30,20 +30,20 @@ creatPlayer = function (game) {
         return true;
     },
     checkPlayerSax = function () {
-        var rectHero = cc.rect(player.getPositionX()+10 - player.getContentSize().width / 2 * player.getScaleX(),
+        var rectHero = cc.rect(player.getPositionX() + 10 - player.getContentSize().width / 2 * player.getScaleX(),
             player.getPositionY() - player.getContentSize().height / 2 * player.getScaleY(),
-            (player.getContentSize().width-20) * player.getScaleX(),
+            (player.getContentSize().width - 20) * player.getScaleX(),
             30 * player.getScaleY());
         if (checkBomNew(rectHero) == false) {
             return false;
         }
         return true;
     },
-    playerItem=function () {
+    playerItem = function () {
         var playeritem = new cc.LabelTTF("Press Z");
         playeritem.setFontSize(15);
         playeritem.setTag(5);
-        playeritem.setPosition(cc.p(x_sprite, y_sprite+50));
+        playeritem.setPosition(cc.p(x_sprite, y_sprite + 50));
         playeritem.setColor(cc.color(0, 0, 0));
         game.addChild(playeritem);
     },
@@ -63,11 +63,50 @@ creatPlayer = function (game) {
             (player.getContentSize().width - 20) * player.getScaleX(),
             20 * player.getScaleY());
         if (checkMap(rectHeroDemo) == false) {
-            xR = xK;
-            yR = yK;
 
+//dang lam
+            if (speedY == 1|| speedY==-1) {
+                for (var i = 0; i < arrrectMap.length; i++) {
+                    if (arrrectMap[i].visible == true) {
+                        var rectMap = cc.rect((arrrectMap[i].getPositionX() + 1) - arrrectMap[i].getContentSize().width / 2 * arrrectMap[i].getScaleX(),
+                            (arrrectMap[i].getPositionY() + 1) - arrrectMap[i].getContentSize().height / 2 * arrrectMap[i].getScaleY(),
+                            (arrrectMap[i].getContentSize().width - 2) * arrrectMap[i].getScaleX(),
+                            (arrrectMap[i].getContentSize().height - 2) * arrrectMap[i].getScaleY());
+                        if (cc.rectIntersectsRect(rectHeroDemo, rectMap)) {
+                            //trai
+                            var a=arrrectMap[i].getPositionX();
+                            if (a - xR > 15) {
+                                xR = xR - 1;
+                                cc.log("cong" + xR);
+                            }
+//phai
+                            else if (a - xR < -15) {
+                                xR = xR + 1;
+                                cc.log("tru" + xR);
+
+                            }
+                            else {
+                                xR = xK;
+                                yR = yK;
+
+                            }
+
+                        }
+                    }
+
+                }
+            }
+
+            //dang lam
+
+            else {
+                xR = xK;
+                yR = yK;
+
+            }
         }
-        if (checkBoom(rectHeroDemo)==false){
+
+        if (checkBoom(rectHeroDemo) == false) {
             for (var i = 0; i < arrBombs.length; i++) {
                 if (arrBombs[i].visible == true) {
                     var recBombWidth = cc.rect(arrBombs[i].getPositionX() - arrBombs[i].getContentSize().width / 2 * arrBombs[i].getScaleX(),
@@ -80,9 +119,9 @@ creatPlayer = function (game) {
                         arrBombs[i].getContentSize().height * arrBombs[i].getScaleY());
 
                     if (cc.rectIntersectsRect(rectHeroDemo, recBombWidth) || cc.rectIntersectsRect(rectHeroDemo, recBombheight)) {
-                        if (timeBB[i]>30){
-                            xR=xK;
-                            yR=yK;
+                        if (timeBB[i] > 30) {
+                            xR = xK;
+                            yR = yK;
                         }
                     }
                 }
@@ -92,24 +131,22 @@ creatPlayer = function (game) {
         player.setPosition(cc.p(xR, yR));
     },
     playertoDie = function () {
-        rectHero = cc.rect(player.getPositionX()+10 - player.getContentSize().width / 2 * player.getScaleX(),
+        rectHero = cc.rect(player.getPositionX() + 10 - player.getContentSize().width / 2 * player.getScaleX(),
             player.getPositionY() - player.getContentSize().width / 2 * player.getScaleY(),
-            (player.getContentSize().width-20) * player.getScaleX(),
+            (player.getContentSize().width - 20) * player.getScaleX(),
             20 * player.getScaleY());
         if (checkDie(rectHero) == false) {
 
 
-                player.setPosition(cc.p(795, 120));
-                player.setOpacity(0);
-                player.setTexture(res.BeBongDown_png);
+            player.setPosition(cc.p(795, 120));
+            player.setOpacity(0);
+            player.setTexture(res.BeBongDown_png);
 
-                var FadedInPlayer = cc.FadeIn.create(2);
-                player.runAction(FadedInPlayer);
-                countPlayerHeart -= 1;
+            var FadedInPlayer = cc.FadeIn.create(2);
+            player.runAction(FadedInPlayer);
+            countPlayerHeart -= 1;
 
-            }
-
-
+        }
 
 
     };

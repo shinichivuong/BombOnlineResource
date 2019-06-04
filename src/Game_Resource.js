@@ -86,6 +86,7 @@ var res = {
     BoxSat_png: "res/boxsat.png",
     BoxLand_png: "res/snow.png",
     BoxCot_png: "res/boxcot.png",
+    Boxland2_png:"res/land.png",
 //items
     ItemBoom_png: "res/items/item_bomb.gif",
     ItemSpeed_png: "res/items/item_bombsize.gif",

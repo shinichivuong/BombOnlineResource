@@ -350,9 +350,10 @@ var Gamelayers = cc.Layer.extend({
         additemsShoe(game);
         additemsBoomSize(game);
 
-
         addCreep(game);
+
         creatMap(game, arrMap);
+
         creatPlayer(game);
         userName(game);
         bossHeart(game);
