@@ -65,22 +65,45 @@ creatPlayer = function (game) {
         if (checkMap(rectHeroDemo) == false) {
 
 //dang lam
-            if (speedY == 1|| speedY==-1) {
+            if (speedY == 1 || speedY == -1) {
                 for (var i = 0; i < arrrectMap.length; i++) {
                     if (arrrectMap[i].visible == true) {
                         var rectMap = cc.rect((arrrectMap[i].getPositionX()) - arrrectMap[i].getContentSize().width / 2 * arrrectMap[i].getScaleX(),
-                            (arrrectMap[i].getPositionY() ) - arrrectMap[i].getContentSize().height / 2 * arrrectMap[i].getScaleY(),
-                            (arrrectMap[i].getContentSize().width ) * arrrectMap[i].getScaleX(),
+                            (arrrectMap[i].getPositionY()) - arrrectMap[i].getContentSize().height / 2 * arrrectMap[i].getScaleY(),
+                            (arrrectMap[i].getContentSize().width) * arrrectMap[i].getScaleX(),
                             (arrrectMap[i].getContentSize().height) * arrrectMap[i].getScaleY());
                         if (cc.rectIntersectsRect(rectHeroDemo, rectMap)) {
                             //trai
-                            var a=arrrectMap[i].getPositionX();
-                            if (a - xR > 15) {
-                                xR = xR - 1;
+                            var a = arrrectMap[i].getPositionX();
+                            var rectMap2 = cc.rect((arrrectMap[i].getPositionX() - 45) - arrrectMap[i].getContentSize().width / 2 * arrrectMap[i].getScaleX(),
+                                (arrrectMap[i].getPositionY()) - arrrectMap[i].getContentSize().height / 2 * arrrectMap[i].getScaleY(),
+                                (arrrectMap[i].getContentSize().width) * arrrectMap[i].getScaleX(),
+                                (arrrectMap[i].getContentSize().height) * arrrectMap[i].getScaleY());
+                            var rectMap3 = cc.rect((arrrectMap[i].getPositionX() + 45) - arrrectMap[i].getContentSize().width / 2 * arrrectMap[i].getScaleX(),
+                                (arrrectMap[i].getPositionY()) - arrrectMap[i].getContentSize().height / 2 * arrrectMap[i].getScaleY(),
+                                (arrrectMap[i].getContentSize().width) * arrrectMap[i].getScaleX(),
+                                (arrrectMap[i].getContentSize().height) * arrrectMap[i].getScaleY());
+
+                            if (a - xR > 10) {
+                                if (checkMap(rectMap2)!=false){
+                                    xR = xR - 1;
+                                }
+                                else {
+                                    xR = xK;
+                                    yR = yK;
+                                }
                             }
-//phai
-                            else if (a - xR < -15) {
-                                xR = xR + 1;
+//ph
+                            else if (a - xR < -10) {
+                                if (checkMap(rectMap3)!=false){
+                                    xR = xR + 1;
+
+                                }
+                                else
+                                {
+                                    xR = xK;
+                                    yR = yK;
+                                }
                             }
                             else {
                                 xR = xK;

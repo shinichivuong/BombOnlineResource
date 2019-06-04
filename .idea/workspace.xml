@@ -14,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Game_GamePlay1.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Game_GamePlay1.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Game_GamePlay1.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="445" column="14" lean-forward="true" selection-start-line="445" selection-start-column="14" selection-end-line="445" selection-end-column="14" />
+            <state relative-caret-position="603">
+              <caret line="463" column="25" lean-forward="true" selection-start-line="463" selection-start-column="25" selection-end-line="463" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -36,11 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Game_Player.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Game_Player.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Game_Player.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="84" column="34" lean-forward="true" selection-start-line="84" selection-start-column="34" selection-end-line="84" selection-end-column="34" />
+            <state relative-caret-position="527">
+              <caret line="96" column="49" lean-forward="false" selection-start-line="96" selection-start-column="49" selection-end-line="96" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -327,12 +327,12 @@
       <workItem from="1559613598803" duration="594000" />
       <workItem from="1559615390916" duration="702000" />
       <workItem from="1559617656926" duration="6785000" />
-      <workItem from="1559628418156" duration="13492000" />
+      <workItem from="1559628418156" duration="17281000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="323043000" />
+    <option name="totallyTimeSpent" value="326832000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="705" y="0" width="1207" height="1040" extended-state="0" />
@@ -707,18 +707,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game_Player.js">
+    <entry file="file://$PROJECT_DIR$/src/Game_GamePlay1.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="84" column="34" lean-forward="true" selection-start-line="84" selection-start-column="34" selection-end-line="84" selection-end-column="34" />
+        <state relative-caret-position="603">
+          <caret line="463" column="25" lean-forward="true" selection-start-line="463" selection-start-column="25" selection-end-line="463" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game_GamePlay1.js">
+    <entry file="file://$PROJECT_DIR$/src/Game_Player.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="445" column="14" lean-forward="true" selection-start-line="445" selection-start-column="14" selection-end-line="445" selection-end-column="14" />
+        <state relative-caret-position="527">
+          <caret line="96" column="49" lean-forward="false" selection-start-line="96" selection-start-column="49" selection-end-line="96" selection-end-column="49" />
           <folding />
         </state>
       </provider>
