@@ -15,7 +15,6 @@ creatBoom = function (game) {
         // changePoint();
         x_bombk = x_sprite;
         y_bombk = y_sprite - 10;
-        // changePoint(x_bombk, y_bombk);
         timeBB[timeBB.length] = 0;
         cc.audioEngine.playEffect(res.Sound_creatBoom);
         boom = new cc.Sprite.create(res.Boom_png);
@@ -26,7 +25,6 @@ creatBoom = function (game) {
         game.addChild(boom);
         arrBombs.push(boom);
 
-
         var sizeleft = countBoomSize;
         var sizeright = countBoomSize;
         var sizeup = countBoomSize;
@@ -35,6 +33,7 @@ creatBoom = function (game) {
         sizerights.push(sizeright);
         sizeups.push(sizeup);
         sizedowns.push(sizedown);
+
         var boomleft = cc.Sprite.create("res/Bomb/bombbang_left" + sizeleft + ".png");
         boomleft.setAnchorPoint(cc.p(1, 0.5));
         boomleft.setPosition(cc.p(x_sprite, y_sprite - 10));
@@ -258,7 +257,7 @@ destroybox = function () {
     checkBomNew = function (rect) {
         for (var i = 0; i < arrBombs.length; i++) {
             if (bomleft[i].visible == true) {
-                var rectleft = cc.rect(arrBombs[i].getPositionX() - bomleft[i].getContentSize().width+25,
+                var rectleft = cc.rect(arrBombs[i].getPositionX() - bomleft[i].getContentSize().width + 25,
                     arrBombs[i].getPositionY() - 10,
                     bomleft[i].getContentSize().width - 25,
                     bomleft[i].getContentSize().height - 25);

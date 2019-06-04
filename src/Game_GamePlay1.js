@@ -147,19 +147,21 @@ var Gamelayers = cc.Layer.extend({
     },
     update: function (dt) {
         if (gameOverNow == true && gameWinNow == true) {
-
+//so mang cua nguoi choi
             if (countPlayerHeart == 0) {
                 gameover(game);
                 var scene = new GameMenuHighScore;
                 cc.director.pushScene(new cc.TransitionFade(10, scene));
                 gameOverNow = false;
             }
+            //so diem ha guc boss
             if (countkillboss == 6) {
                 gamewin(game);
                 var scene = new GameMenuHighScore;
                 cc.director.pushScene(new cc.TransitionFade(10, scene));
                 gameWinNow = false;
             }
+            //an boss khi chet
             for (var k = 0; k < creepLive.length; k++) {
                 creepLive[k] += dt;
                 if (creepLive[k] > 0.1 && k != 6 && creepLive[k] < 0.3) {
@@ -182,7 +184,6 @@ var Gamelayers = cc.Layer.extend({
             AI(size);
             //set thời gian game
             realTime += dt;
-
             if (countHeartBoss == 5) {
                 for (var i = 0; i < arrrectMap.length; i++) {
                     if (arrrectMap[i].getTag().toString() != 1) {
@@ -298,27 +299,7 @@ var Gamelayers = cc.Layer.extend({
 });
 
 
-moveGame = function () {
-    checkItemGame(rectHero, itemBombs);
-    checkItemGame(rectHero, itemShoes);
-    checkItemGame(rectHero, itemBombsizes);
-    x_sprite = player.getPosition().x;
-    y_sprite = player.getPosition().y;
-    xK = x_sprite;
-    yK = y_sprite;
-    xR = (x_sprite + speedX * speed) * player.getScaleX();
-    yR = (y_sprite + speedY * speed) * player.getScaleY();
-    var rectHeroDemo = cc.rect(xR + 10 - player.getContentSize().width / 2 * player.getScaleX(),
-        yR - player.getContentSize().height / 2 * player.getScaleY(),
-        (player.getContentSize().width - 20) * player.getScaleX(),
-        20 * player.getScaleY());
-    if (checkMap(rectHeroDemo) == false) {
-        xR = xK;
-        yR = yK;
 
-    }
-    player.setPosition(cc.p(xR, yR));
-},
 
     startGame = function (game) {
         bomup = [];
@@ -359,7 +340,7 @@ moveGame = function () {
         timeBB = [];
 
         var size = cc.director.getWinSize();
-        // cc.audioEngine.playMusic(res.Playgame_sound,3);
+        cc.audioEngine.playMusic(res.Playgame_sound, 3);
 
         var backGr = new cc.Sprite(res.Map_png);
         backGr.setAnchorPoint(cc.p(0.5, 0.5));
@@ -449,7 +430,8 @@ moveGame = function () {
                     moveGame();
 
                 }
-                if (keySpace) {9
+                if (keySpace) {
+                    9
                     if (arrBombs.length <= countBomb && checkBombSmall() == true) {
                         creatBoom(game);
                     }
