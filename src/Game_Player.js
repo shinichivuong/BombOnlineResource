@@ -68,22 +68,19 @@ creatPlayer = function (game) {
             if (speedY == 1|| speedY==-1) {
                 for (var i = 0; i < arrrectMap.length; i++) {
                     if (arrrectMap[i].visible == true) {
-                        var rectMap = cc.rect((arrrectMap[i].getPositionX() + 1) - arrrectMap[i].getContentSize().width / 2 * arrrectMap[i].getScaleX(),
-                            (arrrectMap[i].getPositionY() + 1) - arrrectMap[i].getContentSize().height / 2 * arrrectMap[i].getScaleY(),
-                            (arrrectMap[i].getContentSize().width - 2) * arrrectMap[i].getScaleX(),
-                            (arrrectMap[i].getContentSize().height - 2) * arrrectMap[i].getScaleY());
+                        var rectMap = cc.rect((arrrectMap[i].getPositionX()) - arrrectMap[i].getContentSize().width / 2 * arrrectMap[i].getScaleX(),
+                            (arrrectMap[i].getPositionY() ) - arrrectMap[i].getContentSize().height / 2 * arrrectMap[i].getScaleY(),
+                            (arrrectMap[i].getContentSize().width ) * arrrectMap[i].getScaleX(),
+                            (arrrectMap[i].getContentSize().height) * arrrectMap[i].getScaleY());
                         if (cc.rectIntersectsRect(rectHeroDemo, rectMap)) {
                             //trai
                             var a=arrrectMap[i].getPositionX();
                             if (a - xR > 15) {
                                 xR = xR - 1;
-                                cc.log("cong" + xR);
                             }
 //phai
                             else if (a - xR < -15) {
                                 xR = xR + 1;
-                                cc.log("tru" + xR);
-
                             }
                             else {
                                 xR = xK;
@@ -96,6 +93,37 @@ creatPlayer = function (game) {
 
                 }
             }
+//             else if (speedX == 1|| speedX==-1) {
+//                 for (var i = 0; i < arrrectMap.length; i++) {
+//                     if (arrrectMap[i].visible == true) {
+//                         var rectMap = cc.rect((arrrectMap[i].getPositionX()) - arrrectMap[i].getContentSize().width / 2 * arrrectMap[i].getScaleX(),
+//                             (arrrectMap[i].getPositionY() ) - arrrectMap[i].getContentSize().height / 2 * arrrectMap[i].getScaleY(),
+//                             (arrrectMap[i].getContentSize().width  ) * arrrectMap[i].getScaleX(),
+//                             (arrrectMap[i].getContentSize().height ) * arrrectMap[i].getScaleY());
+//                         if (cc.rectIntersectsRect(rectHeroDemo, rectMap)) {
+//                             //trai
+//                             var k=arrrectMap[i].getPositionY();
+//                             if (k - yR > 15) {
+//                                 yR = yR - 1;
+//                                 cc.log("cong" + yR);
+//                             }
+// //phai
+//                             else if (k - yR < -15) {
+//                                 yR = yR + 1;
+//                                 cc.log("tru" + yR);
+//
+//                             }
+//                             else {
+//                                 xR = xK;
+//                                 yR = yK;
+//
+//                             }
+//
+//                         }
+//                     }
+//
+//                 }
+//             }
 
             //dang lam
 

@@ -340,7 +340,7 @@ var Gamelayers = cc.Layer.extend({
         timeBB = [];
 
         var size = cc.director.getWinSize();
-        cc.audioEngine.playMusic(res.Playgame_sound, 3);
+        // cc.audioEngine.playMusic(res.Playgame_sound, 3);
 
         var backGr = new cc.Sprite(res.Map_png);
         backGr.setAnchorPoint(cc.p(0.5, 0.5));
