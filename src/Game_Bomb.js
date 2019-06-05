@@ -15,6 +15,8 @@ creatBoom = function (game) {
         // changePoint();
         x_bombk = x_sprite;
         y_bombk = y_sprite - 10;
+        x_bombk=changePointX(x_bombk);
+        y_bombk=changePointY(y_bombk);
         timeBB[timeBB.length] = 0;
         cc.audioEngine.playEffect(res.Sound_creatBoom);
         boom = new cc.Sprite.create(res.Boom_png);
@@ -36,14 +38,14 @@ creatBoom = function (game) {
 
         var boomleft = cc.Sprite.create("res/Bomb/bombbang_left" + sizeleft + ".png");
         boomleft.setAnchorPoint(cc.p(1, 0.5));
-        boomleft.setPosition(cc.p(x_sprite, y_sprite - 10));
+        boomleft.setPosition(cc.p(x_bombk, y_bombk));
         boomleft.setVisible(false);
         game.addChild(boomleft);
         bomleft.push(boomleft);
 
         var boomright = cc.Sprite.create("res/Bomb/bombbang_right" + sizeright + ".png");
         boomright.setAnchorPoint(cc.p(0, 0.5));
-        boomright.setPosition(cc.p(x_sprite, y_sprite - 10));
+        boomright.setPosition(cc.p(x_bombk, y_bombk));
         boomright.setVisible(false);
 
         game.addChild(boomright);
@@ -51,7 +53,7 @@ creatBoom = function (game) {
 
         var boomup = cc.Sprite.create("res/Bomb/bombbang_up" + sizeup + ".png");
         boomup.setAnchorPoint(cc.p(0.5, 0));
-        boomup.setPosition(cc.p(x_sprite, y_sprite - 10));
+        boomup.setPosition(cc.p(x_bombk, y_bombk));
         boomup.setVisible(false);
 
         game.addChild(boomup);
@@ -59,7 +61,7 @@ creatBoom = function (game) {
 
         var boomdown = cc.Sprite.create("res/Bomb/bombbang_down" + sizedown + ".png");
         boomdown.setAnchorPoint(cc.p(0.5, 1));
-        boomdown.setPosition(cc.p(x_sprite, y_sprite - 10));
+        boomdown.setPosition(cc.p(x_bombk, y_bombk));
         boomdown.setVisible(false);
 
         game.addChild(boomdown);
@@ -67,6 +69,38 @@ creatBoom = function (game) {
         mycurrentime = timer;
     }
 },
+    //dang lam
+    changePointX=function (x) {
+        var n=(x-70)%45; 
+        var result=0;
+        if (n>0&&n<22.5){
+            result=x-n;
+        }
+        else if(n>0 && n>22.5){
+            result=x-n+45;
+        }
+        else
+        {
+            result=x;
+        }
+        return result;
+    },
+    changePointY=function (y) {
+        var n=(y-30)%45;
+        var result=0;
+        if (n>0&&n<22.5){
+            result=y-n;
+        }
+        else if(n>0 && n>22.5){
+            result=y-n+45;
+        }
+        else
+        {
+            result=y;
+        }
+        return result;
+    },
+    //lam
     boomSize = function (i) {
         bomleft[i].setVisible(true);
         bomdown[i].setVisible(true);

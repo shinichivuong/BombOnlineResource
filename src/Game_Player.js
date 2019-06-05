@@ -191,7 +191,7 @@ creatPlayer = function (game) {
                         player.getContentSize().width -2 * arrBombs[i].getScaleY());
 
                     if (cc.rectIntersectsRect(rectHeroDemo, recBombWidth) ) {
-                        if (timeBB[i] > 30) {
+                        if (timeBB[i] > 35) {
                             xR = xK;
                             yR = yK;
                         }
