@@ -455,10 +455,10 @@ var Gamelayers = cc.Layer.extend({
             checkMap = function (rect) {
                 for (var i = 0; i < arrrectMap.length; i++) {
                     if (arrrectMap[i].visible == true) {
-                        var rectEnemy = cc.rect((arrrectMap[i].getPositionX() + 1) - arrrectMap[i].getContentSize().width / 2 * arrrectMap[i].getScaleX(),
-                            (arrrectMap[i].getPositionY() + 1) - arrrectMap[i].getContentSize().height / 2 * arrrectMap[i].getScaleY(),
-                            (arrrectMap[i].getContentSize().width - 2) * arrrectMap[i].getScaleX(),
-                            (arrrectMap[i].getContentSize().height - 2) * arrrectMap[i].getScaleY());
+                        var rectEnemy = cc.rect((arrrectMap[i].getPositionX() + 0.5) - arrrectMap[i].getContentSize().width / 2 * arrrectMap[i].getScaleX(),
+                            (arrrectMap[i].getPositionY() + 0.5) - arrrectMap[i].getContentSize().height / 2 * arrrectMap[i].getScaleY(),
+                            (arrrectMap[i].getContentSize().width - 1) * arrrectMap[i].getScaleX(),
+                            (arrrectMap[i].getContentSize().height - 1) * arrrectMap[i].getScaleY());
                         if (cc.rectIntersectsRect(rect, rectEnemy)) {
                             return false;
                         }

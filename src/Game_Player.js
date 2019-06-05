@@ -58,10 +58,10 @@ creatPlayer = function (game) {
         yK = y_sprite;
         xR = (x_sprite + speedX * speed) * player.getScaleX();
         yR = (y_sprite + speedY * speed) * player.getScaleY();
-        var rectHeroDemo = cc.rect(xR + 10 - player.getContentSize().width / 2 * player.getScaleX(),
+        var rectHeroDemo = cc.rect(xR - player.getContentSize().width / 2 * player.getScaleX(),
             yR - player.getContentSize().height / 2 * player.getScaleY(),
-            (player.getContentSize().width - 20) * player.getScaleX(),
-            20 * player.getScaleY());
+            (player.getContentSize().width ) * player.getScaleX(),
+            30 * player.getScaleY());
         if (checkMap(rectHeroDemo) == false) {
 
 //dang lam
@@ -84,9 +84,11 @@ creatPlayer = function (game) {
                                 (arrrectMap[i].getContentSize().width) * arrrectMap[i].getScaleX(),
                                 (arrrectMap[i].getContentSize().height) * arrrectMap[i].getScaleY());
 
-                            if (a - xR > 10) {
+                            if (a - xR > 20) {
                                 if (checkMap(rectMap2)!=false){
                                     xR = xR - 1;
+                                    yR = yK;
+
                                 }
                                 else {
                                     xR = xK;
@@ -94,9 +96,11 @@ creatPlayer = function (game) {
                                 }
                             }
 //ph
-                            else if (a - xR < -10) {
+                            else if (a - xR < -20) {
                                 if (checkMap(rectMap3)!=false){
                                     xR = xR + 1;
+                                    yR = yK;
+
 
                                 }
                                 else
@@ -116,37 +120,58 @@ creatPlayer = function (game) {
 
                 }
             }
-//             else if (speedX == 1|| speedX==-1) {
-//                 for (var i = 0; i < arrrectMap.length; i++) {
-//                     if (arrrectMap[i].visible == true) {
-//                         var rectMap = cc.rect((arrrectMap[i].getPositionX()) - arrrectMap[i].getContentSize().width / 2 * arrrectMap[i].getScaleX(),
-//                             (arrrectMap[i].getPositionY() ) - arrrectMap[i].getContentSize().height / 2 * arrrectMap[i].getScaleY(),
-//                             (arrrectMap[i].getContentSize().width  ) * arrrectMap[i].getScaleX(),
-//                             (arrrectMap[i].getContentSize().height ) * arrrectMap[i].getScaleY());
-//                         if (cc.rectIntersectsRect(rectHeroDemo, rectMap)) {
-//                             //trai
-//                             var k=arrrectMap[i].getPositionY();
-//                             if (k - yR > 15) {
-//                                 yR = yR - 1;
-//                                 cc.log("cong" + yR);
-//                             }
-// //phai
-//                             else if (k - yR < -15) {
-//                                 yR = yR + 1;
-//                                 cc.log("tru" + yR);
-//
-//                             }
-//                             else {
-//                                 xR = xK;
-//                                 yR = yK;
-//
-//                             }
-//
-//                         }
-//                     }
-//
-//                 }
-//             }
+            else if (speedX == 1|| speedX==-1) {
+                for (var i = 0; i < arrrectMap.length; i++) {
+                    if (arrrectMap[i].visible == true) {
+                        var rectMap = cc.rect((arrrectMap[i].getPositionX()) - arrrectMap[i].getContentSize().width / 2 * arrrectMap[i].getScaleX(),
+                            (arrrectMap[i].getPositionY()) - arrrectMap[i].getContentSize().height / 2 * arrrectMap[i].getScaleY(),
+                            (arrrectMap[i].getContentSize().width) * arrrectMap[i].getScaleX(),
+                            (arrrectMap[i].getContentSize().height) * arrrectMap[i].getScaleY());
+                        if (cc.rectIntersectsRect(rectHeroDemo, rectMap)) {
+                            //trai
+                            var a = arrrectMap[i].getPositionY();
+                            var rectMap2 = cc.rect((arrrectMap[i].getPositionX()) - arrrectMap[i].getContentSize().width / 2 * arrrectMap[i].getScaleX(),
+                                (arrrectMap[i].getPositionY() - 45) - arrrectMap[i].getContentSize().height / 2 * arrrectMap[i].getScaleY(),
+                                (arrrectMap[i].getContentSize().width) * arrrectMap[i].getScaleX(),
+                                (arrrectMap[i].getContentSize().height) * arrrectMap[i].getScaleY());
+                            var rectMap3 = cc.rect((arrrectMap[i].getPositionX()) - arrrectMap[i].getContentSize().width / 2 * arrrectMap[i].getScaleX(),
+                                (arrrectMap[i].getPositionY() + 45) - arrrectMap[i].getContentSize().height / 2 * arrrectMap[i].getScaleY(),
+                                (arrrectMap[i].getContentSize().width) * arrrectMap[i].getScaleX(),
+                                (arrrectMap[i].getContentSize().height) * arrrectMap[i].getScaleY());
+
+                            if (a - yR > 3) {
+                                if (checkMap(rectMap2) != false) {
+                                    yR = yR - 1;
+                                    xR=xK;
+                                }
+                                else {
+                                    xR = xK;
+                                    yR = yK;
+                                }
+                            }
+//ph
+                            else if (a - yR < -30) {
+                                if (checkMap(rectMap3) != false) {
+                                    yR = yR + 1;
+                                    xR=xK;
+
+                                }
+                                else {
+                                    xR = xK;
+                                    yR = yK;
+                                }
+                            }
+                            else {
+                                xR = xK;
+                                yR = yK;
+
+                            }
+
+                        }
+                    }
+
+                }
+            }
 
             //dang lam
 
