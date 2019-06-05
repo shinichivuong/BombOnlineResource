@@ -165,19 +165,6 @@ creatBoom = function (game) {
                     }
 
                 }
-                // if (arrrectMap[j].getTag().toString() == "4") {
-                //     var rectMap2 = cc.rect(arrrectMap[j].getPositionX() - arrrectMap[j].getContentSize().width / 2 * arrrectMap[j].getScaleX(),
-                //         arrrectMap[j].getPositionY() - arrrectMap[j].getContentSize().height / 2 * arrrectMap[j].getScaleY(),
-                //         arrrectMap[j].getContentSize().width * arrrectMap[j].getScaleX(),
-                //         arrrectMap[j].getContentSize().height * arrrectMap[j].getScaleY());
-                //     if (cc.rectIntersectsRect(rect, rectMap2)) {
-                //         if (rect.visible == true) {
-                //             arrrectMap[j].setVisible(false);
-                //             return false;
-                //         }
-                //     }
-                // }
-
             }
 
         }
@@ -237,16 +224,12 @@ destroybox = function () {
     checkBoom = function (rect) {
         for (var i = 0; i < arrBombs.length; i++) {
             if (arrBombs[i].visible == true) {
-                var recBombWidth = cc.rect(arrBombs[i].getPositionX() - arrBombs[i].getContentSize().width / 2 * arrBombs[i].getScaleX(),
-                    arrBombs[i].getPositionY() - player.getContentSize().width / 2 * arrBombs[i].getScaleY(),
-                    arrBombs[i].getContentSize().width * arrBombs[i].getScaleX(),
-                    player.getContentSize().width / 2 * arrBombs[i].getScaleY());
-                var recBombheight = cc.rect(arrBombs[i].getPositionX() - player.getContentSize().width / 2 * arrBombs[i].getScaleX(),
-                    arrBombs[i].getPositionY() - arrBombs[i].getContentSize().height / 2 * arrBombs[i].getScaleY(),
-                    player.getContentSize().width / 2 * arrBombs[i].getScaleX(),
-                    arrBombs[i].getContentSize().height * arrBombs[i].getScaleY());
+                var recBombWidth = cc.rect(arrBombs[i].getPositionX()+1 - arrBombs[i].getContentSize().width / 2 * arrBombs[i].getScaleX(),
+                    arrBombs[i].getPositionY()+1 - player.getContentSize().width / 2 * arrBombs[i].getScaleY(),
+                    (arrBombs[i].getContentSize().width -2)* arrBombs[i].getScaleX(),
+                    ( player.getContentSize().width -2 )* arrBombs[i].getScaleY());
 
-                if (cc.rectIntersectsRect(rect, recBombWidth) || cc.rectIntersectsRect(rect, recBombheight)) {
+                if (cc.rectIntersectsRect(rect, recBombWidth)) {
                     return false;
                 }
             }
@@ -283,16 +266,3 @@ destroybox = function () {
         }
     };
 
-// changePoint = function (x_bomb, y_bomb) {
-//     var m = (x_bomb - 70) / 45;
-//     var n = (y_bomb - 30) / 45;
-//     if ((x_bomb-70)%45>22.5){
-//         x_bombk=(m+1)*45+70;
-//     }
-//     if ((x_bomb-70)%45<=22.5){
-//         x_bombk=m*45+70;
-//     }
-// };
-
-
-//

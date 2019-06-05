@@ -9,7 +9,7 @@ var HelloWorldLayer = cc.Layer.extend({
         sprite.setScale(0.7);
         sprite.setPosition(cc.p(size.width / 2, size.height / 2));
         this.addChild(sprite);
-        // cc.audioEngine.playMusic(res.sound_main);
+        cc.audioEngine.playMusic(res.sound_main);
         cc.audioEngine.setMusicVolume(0.3);
 
         var menuStart = new cc.MenuItemImage(res.Start_png, res.Start2_png, play);

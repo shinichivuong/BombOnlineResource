@@ -185,16 +185,12 @@ creatPlayer = function (game) {
         if (checkBoom(rectHeroDemo) == false) {
             for (var i = 0; i < arrBombs.length; i++) {
                 if (arrBombs[i].visible == true) {
-                    var recBombWidth = cc.rect(arrBombs[i].getPositionX() - arrBombs[i].getContentSize().width / 2 * arrBombs[i].getScaleX(),
-                        arrBombs[i].getPositionY() - player.getContentSize().width / 2 * arrBombs[i].getScaleY(),
-                        arrBombs[i].getContentSize().width * arrBombs[i].getScaleX(),
-                        player.getContentSize().width / 2 * arrBombs[i].getScaleY());
-                    var recBombheight = cc.rect(arrBombs[i].getPositionX() - player.getContentSize().width / 2 * arrBombs[i].getScaleX(),
-                        arrBombs[i].getPositionY() - arrBombs[i].getContentSize().height / 2 * arrBombs[i].getScaleY(),
-                        player.getContentSize().width / 2 * arrBombs[i].getScaleX(),
-                        arrBombs[i].getContentSize().height * arrBombs[i].getScaleY());
+                    var recBombWidth = cc.rect(arrBombs[i].getPositionX()+1 - arrBombs[i].getContentSize().width / 2 * arrBombs[i].getScaleX(),
+                        arrBombs[i].getPositionY()+1 - player.getContentSize().width / 2 * arrBombs[i].getScaleY(),
+                        arrBombs[i].getContentSize().width-2 * arrBombs[i].getScaleX(),
+                        player.getContentSize().width -2 * arrBombs[i].getScaleY());
 
-                    if (cc.rectIntersectsRect(rectHeroDemo, recBombWidth) || cc.rectIntersectsRect(rectHeroDemo, recBombheight)) {
+                    if (cc.rectIntersectsRect(rectHeroDemo, recBombWidth) ) {
                         if (timeBB[i] > 30) {
                             xR = xK;
                             yR = yK;

@@ -123,7 +123,7 @@ var Gamelayers = cc.Layer.extend({
                                     if (countKim > 0) {
                                         player.setPosition(cc.p(795, 120));
                                         player.setOpacity(0);
-                                        player.setTexture(res.BeBongDown_png);
+                                        player.setTexture(arrPlayer[0]);
 
                                         var FadedInPlayer = cc.FadeIn.create(2);
                                         player.runAction(FadedInPlayer);
@@ -340,7 +340,7 @@ var Gamelayers = cc.Layer.extend({
         timeBB = [];
 
         var size = cc.director.getWinSize();
-        // cc.audioEngine.playMusic(res.Playgame_sound, 3);
+        cc.audioEngine.playMusic(res.Playgame_sound, 3);
 
         var backGr = new cc.Sprite(res.Map_png);
         backGr.setAnchorPoint(cc.p(0.5, 0.5));
