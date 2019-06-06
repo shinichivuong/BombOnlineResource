@@ -55,7 +55,7 @@
         <entry file="file://$PROJECT_DIR$/src/GameMenu_ChosePlayer.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1666">
-              <caret line="98" column="9" lean-forward="true" selection-start-line="98" selection-start-column="9" selection-end-line="98" selection-end-column="9" />
+              <caret line="98" column="9" lean-forward="false" selection-start-line="98" selection-start-column="9" selection-end-line="98" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -65,7 +65,7 @@
         <entry file="file://$PROJECT_DIR$/src/Game_Score.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="544">
-              <caret line="114" column="36" lean-forward="true" selection-start-line="110" selection-start-column="8" selection-end-line="114" selection-end-column="36" />
+              <caret line="114" column="36" lean-forward="false" selection-start-line="110" selection-start-column="8" selection-end-line="114" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -75,7 +75,7 @@
         <entry file="file://$PROJECT_DIR$/src/Game_Maps.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="493">
-              <caret line="29" column="31" lean-forward="true" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
+              <caret line="29" column="31" lean-forward="false" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -95,7 +95,7 @@
         <entry file="file://$PROJECT_DIR$/src/Game_Item.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
-              <caret line="44" column="43" lean-forward="true" selection-start-line="44" selection-start-column="43" selection-end-line="44" selection-end-column="43" />
+              <caret line="44" column="43" lean-forward="false" selection-start-line="44" selection-start-column="43" selection-end-line="44" selection-end-column="43" />
               <folding>
                 <element signature="e#60#624#0" expanded="false" />
                 <element signature="e#660#1030#0" expanded="false" />
@@ -109,7 +109,7 @@
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="147">
-              <caret line="61" column="14" lean-forward="true" selection-start-line="61" selection-start-column="14" selection-end-line="61" selection-end-column="14" />
+              <caret line="61" column="14" lean-forward="false" selection-start-line="61" selection-start-column="14" selection-end-line="61" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -119,7 +119,7 @@
         <entry file="file://$PROJECT_DIR$/src/Game_Creep.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="742">
-              <caret line="137" column="0" lean-forward="true" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+              <caret line="137" column="0" lean-forward="false" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
               <folding>
                 <element signature="e#762#1190#0" expanded="false" />
               </folding>
@@ -349,12 +349,12 @@
       <workItem from="1559628418156" duration="17580000" />
       <workItem from="1559699877940" duration="10720000" />
       <workItem from="1559714751312" duration="17489000" />
-      <workItem from="1559786034609" duration="1146000" />
+      <workItem from="1559786034609" duration="1290000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="356486000" />
+    <option name="totallyTimeSpent" value="356630000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="892" y="0" width="1020" height="1040" extended-state="0" />
@@ -676,7 +676,7 @@
     <entry file="file://$PROJECT_DIR$/src/Game_Score.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
-          <caret line="114" column="36" lean-forward="true" selection-start-line="110" selection-start-column="8" selection-end-line="114" selection-end-column="36" />
+          <caret line="114" column="36" lean-forward="false" selection-start-line="110" selection-start-column="8" selection-end-line="114" selection-end-column="36" />
           <folding />
         </state>
       </provider>
@@ -692,7 +692,7 @@
     <entry file="file://$PROJECT_DIR$/src/Game_Item.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="44" column="43" lean-forward="true" selection-start-line="44" selection-start-column="43" selection-end-line="44" selection-end-column="43" />
+          <caret line="44" column="43" lean-forward="false" selection-start-line="44" selection-start-column="43" selection-end-line="44" selection-end-column="43" />
           <folding>
             <element signature="e#60#624#0" expanded="false" />
             <element signature="e#660#1030#0" expanded="false" />
@@ -712,7 +712,7 @@
     <entry file="file://$PROJECT_DIR$/src/GameMenu_ChosePlayer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1666">
-          <caret line="98" column="9" lean-forward="true" selection-start-line="98" selection-start-column="9" selection-end-line="98" selection-end-column="9" />
+          <caret line="98" column="9" lean-forward="false" selection-start-line="98" selection-start-column="9" selection-end-line="98" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -733,7 +733,7 @@
     <entry file="file://$PROJECT_DIR$/src/Game_Maps.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
-          <caret line="29" column="31" lean-forward="true" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
+          <caret line="29" column="31" lean-forward="false" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -741,7 +741,7 @@
     <entry file="file://$PROJECT_DIR$/src/Game_Creep.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="742">
-          <caret line="137" column="0" lean-forward="true" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+          <caret line="137" column="0" lean-forward="false" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
           <folding>
             <element signature="e#762#1190#0" expanded="false" />
           </folding>
@@ -751,7 +751,7 @@
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
-          <caret line="61" column="14" lean-forward="true" selection-start-line="61" selection-start-column="14" selection-end-line="61" selection-end-column="14" />
+          <caret line="61" column="14" lean-forward="false" selection-start-line="61" selection-start-column="14" selection-end-line="61" selection-end-column="14" />
           <folding />
         </state>
       </provider>
