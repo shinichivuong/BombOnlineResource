@@ -18,7 +18,6 @@ addCreep = function (game) {
     arrcreeps[3].setPosition(cc.p(790, 525));
     arrcreeps[4].setPosition(cc.p(475, 210));
     arrcreeps[6].setPosition(cc.p(520, 345));
-
     arrcreeps[6].setTexture(res.BigBossDown_png);
     arrcreeps[5].setPosition(cc.p(835, 390));
 },
@@ -42,6 +41,7 @@ addCreep = function (game) {
     },
     AI = function (size) {
         if (mytime - mytime2 > speedBoss) {
+
             for (var i = 0; i < 7; i++) {
                 huong[i] = generateDirection();
                 var pos = arrcreeps[i].getPosition();
@@ -111,6 +111,21 @@ addCreep = function (game) {
         }
 
 
+    },
+    checkCrepp=function (rect) {
+        for (var k = 0; k < arrcreeps.length; k++) {
+            if (arrcreeps[k].visible == true) {
+                var rectEnemy2 = cc.rect(arrcreeps[k].getPositionX() - arrcreeps[k].getContentSize().width / 2 * arrcreeps[k].getScaleX(),
+                    arrcreeps[k].getPositionY() - arrcreeps[k].getContentSize().height / 2 * arrcreeps[k].getScaleY(),
+                    arrcreeps[k].getContentSize().width * arrcreeps[k].getScaleX(),
+                    arrcreeps[k].getContentSize().width * arrcreeps[k].getScaleY());
+                if (cc.rectIntersectsRect(rectEnemy2,rect)) {
+                return false;
+                }
+
+            }
+        }
+        return true;
     },
     bossHeart = function (game) {
         for (var i = 0; i < countHeartBoss; i++) {

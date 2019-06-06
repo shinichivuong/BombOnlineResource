@@ -139,7 +139,7 @@ creatPlayer = function (game) {
                                 (arrrectMap[i].getContentSize().width) * arrrectMap[i].getScaleX(),
                                 (arrrectMap[i].getContentSize().height) * arrrectMap[i].getScaleY());
 
-                            if (a - yR > 3) {
+                            if (a - yR > 2) {
                                 if (checkMap(rectMap2) != false) {
                                     yR = yR - 1;
                                     xR=xK;
@@ -182,24 +182,6 @@ creatPlayer = function (game) {
             }
         }
 
-        if (checkBoom(rectHeroDemo) == false) {
-            for (var i = 0; i < arrBombs.length; i++) {
-                if (arrBombs[i].visible == true) {
-                    var recBombWidth = cc.rect(arrBombs[i].getPositionX()+1 - arrBombs[i].getContentSize().width / 2 * arrBombs[i].getScaleX(),
-                        arrBombs[i].getPositionY()+1 - player.getContentSize().width / 2 * arrBombs[i].getScaleY(),
-                        arrBombs[i].getContentSize().width-2 * arrBombs[i].getScaleX(),
-                        player.getContentSize().width -2 * arrBombs[i].getScaleY());
-
-                    if (cc.rectIntersectsRect(rectHeroDemo, recBombWidth) ) {
-                        if (timeBB[i] > 35) {
-                            xR = xK;
-                            yR = yK;
-                        }
-                    }
-                }
-
-            }
-        }
         player.setPosition(cc.p(xR, yR));
     },
     playertoDie = function () {
@@ -212,7 +194,7 @@ creatPlayer = function (game) {
 
             player.setPosition(cc.p(795, 120));
             player.setOpacity(0);
-            player.setTexture(res.BeBongDown_png);
+            player.setTexture(arrPlayer[0]);
 
             var FadedInPlayer = cc.FadeIn.create(2);
             player.runAction(FadedInPlayer);

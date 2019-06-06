@@ -121,7 +121,7 @@ var Gamelayers = cc.Layer.extend({
                             {
                                 if (isAlive == false) {
                                     if (countKim > 0) {
-                                        player.setPosition(cc.p(795, 120));
+                                        player.setPosition(cc.p(750, 120));
                                         player.setOpacity(0);
                                         player.setTexture(arrPlayer[0]);
 
@@ -155,11 +155,11 @@ var Gamelayers = cc.Layer.extend({
                 gameOverNow = false;
             }
             //so diem ha guc boss
-            if (countkillboss == 6) {
-                gamewin(game);
-                var scene = new GameMenuHighScore;
-                cc.director.pushScene(new cc.TransitionFade(10, scene));
-                gameWinNow = false;
+            if (countkillboss == 16) {
+                    gamewin(game);
+                    gameWinNow=false;
+                    var scene = new GameMenuHighScoreScene;
+                    cc.director.runScene(new cc.TransitionFade(5,scene));
             }
             //an boss khi chet
             for (var k = 0; k < creepLive.length; k++) {
@@ -204,12 +204,15 @@ var Gamelayers = cc.Layer.extend({
             kimLB.setString("Kim(press Z):" + countKim);
             countBomSizeLB.setString(countBoomSize);
             playerLiveLB.setString(countPlayerHeart);
-            //Bomb nổ
-            if (countHeartBoss == 0) {
-                arrcreeps[6].setVisible(false);
-            }
-            for (var i = 0; i < arrBombs.length; i++) {
+       if (arrcreeps[6].visible==true){
+           if (countHeartBoss == 0) {
+               countkillboss+=10;
+               arrcreeps[6].setVisible(false);
+           }
+       }
 
+            //Bomb nổ
+            for (var i = 0; i < arrBombs.length; i++) {
 
                 if (timeBB[i] == 120) {
                     checkwave(i);
@@ -302,6 +305,8 @@ var Gamelayers = cc.Layer.extend({
 
 
     startGame = function (game) {
+        arrMap=arrMap2;
+        arrrectMap=[];
         bomup = [];
         bomleft = [];
         bomright = [];
@@ -403,10 +408,8 @@ var Gamelayers = cc.Layer.extend({
 
                 for (var i = 0; i < timeBB.length; i++) {
                     timeBB[i] += 1;
-
                 }
                 if (keyZ) {
-
                 }
                 if (keyRight) {
                     speedX = 1;

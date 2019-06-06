@@ -305,7 +305,7 @@
                 <file name="src/Game_Score.js"/>
                 <file name="src/Game_Item.js"/>
                 <file name="src/Game_Vars.js"/>
-                <file name="src/Game_Map2.js"/>
+                <file name="src/Game_MapManager.js"/>
                 <file name="src/Game_level2.js"/>
                 <file name="src/GameMenu_HighScore.js"/>
                 <file name="src/GameMenu_ChosePlayer.js"/>

@@ -48,3 +48,6 @@ var avtplayerback=null;
 var arrHighScores=[];
 var highScores;
 var gameWinNow=true;
+var choseMain = null;
+var userNameGame=null;
+var noName=null;

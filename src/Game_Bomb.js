@@ -71,7 +71,7 @@ creatBoom = function (game) {
 },
     //dang lam
     changePointX=function (x) {
-        var n=(x-70)%45; 
+        var n=(x-70)%45;
         var result=0;
         if (n>0&&n<22.5){
             result=x-n;
@@ -117,7 +117,7 @@ creatBoom = function (game) {
         if (sizelefts[i] > 0) {
 
 
-            if (checkWaveMap(rectleft) == false) {
+            if (checkWaveMap(rectleft) == false||checkCrepp(rectleft)==false) {
                 sizelefts[i] -= 1;
                 if (sizelefts[i] >= 1) {
                     bomleft[i].setTexture("res/Bomb/bombbang_left" + sizelefts[i] + ".png");
@@ -134,7 +134,7 @@ creatBoom = function (game) {
             bomright[i].getContentSize().width - 25,
             bomright[i].getContentSize().height - 35);
         if (sizerights[i] > 0) {
-            if (checkWaveMap(rectright) == false) {
+            if (checkWaveMap(rectright) == false||checkCrepp(rectright)==false) {
                 sizerights[i] -= 1;
 
                 if (sizerights[i] >= 1) {
@@ -153,7 +153,7 @@ creatBoom = function (game) {
             bomup[i].getContentSize().width - 35,
             bomup[i].getContentSize().height - 25);
         if (sizeups[i] > 0) {
-            if (checkWaveMap(rectup) == false) {
+            if (checkWaveMap(rectup) == false||checkCrepp(rectup)==false) {
                 sizeups[i] -= 1;
 
                 if (sizeups[i] >= 1) {
@@ -173,7 +173,7 @@ creatBoom = function (game) {
             bomdown[i].getContentSize().height - 25);
         if (sizedowns[i] > 0) {
 
-            if (checkWaveMap(rectdown) == false) {
+            if (checkWaveMap(rectdown) == false||checkCrepp(rectdown)==false) {
                 sizedowns[i] -= 1;
                 if (sizedowns[i] >= 1) {
                     bomdown[i].setTexture("res/Bomb/bombbang_down" + sizedowns[i] + ".png");

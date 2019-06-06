@@ -68,6 +68,11 @@ var res = {
     BigBossRight_png:"res/Boss/boss_right.png",
     BigBossUp_png:"res/Boss/boss_up.png",
     BigBossHeart_png:"res/Boss/heart_boss.png",
+    //CreppTiny
+    CreepTinyLeft_png:"res/CreepTiny/quaivat 2_left.png",
+    CreepTinyRight_png:"res/CreepTiny/quaivat 2_right.png",
+    CreepTinyUp_png:"res/CreepTiny/quaivat 2_up.png",
+    CreepTinyDown_png:"res/CreepTiny/quaivat 2_down.png",
     //sound
     Playgame_sound: "res/sound/soundGame.wav",
     Sound_Monsterdie:"res/sound/monster_die.wav",
@@ -80,13 +85,14 @@ var res = {
 
 
     Chat_png:"res/chat-28317513.jpg",
-
+//map
     BoxGo_png: "res/boxgo.png",
     BoxGo2_png: "res/boxgo2.png",
     BoxSat_png: "res/boxsat.png",
     BoxLand_png: "res/snow.png",
     BoxCot_png: "res/boxcot.png",
     Boxland2_png:"res/land.png",
+    BoxSatMain_png:"res/boxsatmain.png",
 //items
     ItemBoom_png: "res/items/item_bomb.gif",
     ItemSpeed_png: "res/items/item_bombsize.gif",

@@ -24,7 +24,7 @@
         "src/Game_Score.js",
         "src/Game_Item.js",
         "src/Game_Vars.js",
-        "src/Game_Map2.js",
+        "src/Game_MapManager.js",
         "src/Game_level2.js",
         "src/GameMenu_HighScore.js",
         "src/GameMenu_ChosePlayer.js",

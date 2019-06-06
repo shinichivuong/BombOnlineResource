@@ -70,5 +70,5 @@ additemsBoom = function(game) {
 
         }
         return true;
-    }
+    };
 
