@@ -200,7 +200,7 @@ var Gamelayers = cc.Layer.extend({
                         arrrectMap[i].setVisible(false);
                     }
                 }
-                var BossDie = cc.TintTo.create(2, -127, -255, -127);
+                var BossDie = cc.TintTo.create(10, -127, -255, -127);
                 arrcreeps[6].runAction(BossDie);
                 speedBoss = 0.5;
 
@@ -272,7 +272,10 @@ var Gamelayers = cc.Layer.extend({
                     countBomb = countBomb + 1;
                     if (isBossBomb == false) {
                         countHeartBoss -= 1;
+                        arrcreeps[6].setOpacity(0);
+                        var BossDie = cc.FadeIn.create(0.3);
 
+                        arrcreeps[6].runAction(BossDie);
                     }
                     delete timeBB[i];
 

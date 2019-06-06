@@ -24,12 +24,12 @@ addCreep = function (game) {
 },
 headCreep=function () {
     for (var a=0;a<arrcreeps.length;a++){
-       var k=15;
+       var k=0;
         if (a==6){
             k=40;
         }
-        else if (a!=6){
-            k=20;
+        else {
+            k=13;
         }
         var point= arrcreeps[a].getPosition();
         var rect= cc.rect(point.x-arrcreeps[a].getContentSize().width/2,
