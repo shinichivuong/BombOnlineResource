@@ -32,7 +32,8 @@ creatMap= function (name,arrMap) {
                 sprite.setAnchorPoint(cc.p(0.5, 0.5));
                 sprite.setPosition(x, y);
                 sprite.setTag(tag);
-                name.addChild(sprite, 0);
+                sprite.setLocalZOrder(2);
+                name.addChild(sprite);
                 arrrectMap.push(sprite);
             }
         }

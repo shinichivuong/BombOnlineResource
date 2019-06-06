@@ -4,10 +4,11 @@
 //     player.setPosition(150, size.height - 70);
 //     game.addChild(player,2);
 // }varr
+var popupSax = null;
 creatPlayer = function (game) {
     player = new cc.Sprite.create(arrPlayer[0]);
     player.setAnchorPoint(cc.p(0.5, 0.5));
-    player.setLocalZOrder(1);
+    player.setLocalZOrder(3);
     game.addChild(player);
     player.setPosition(cc.p(750, 120));
 
@@ -22,7 +23,7 @@ creatPlayer = function (game) {
                     arrcreeps[i].getContentSize().width * arrcreeps[i].getScaleY());
                 if (cc.rectIntersectsRect(rect, rectEnemy)) {
                     return false;
-                    cc.audioEngine.playMusic()
+                    cc.audioEngine.playMusic();
                 }
             }
 
@@ -60,7 +61,7 @@ creatPlayer = function (game) {
         yR = (y_sprite + speedY * speed) * player.getScaleY();
         var rectHeroDemo = cc.rect(xR - player.getContentSize().width / 2 * player.getScaleX(),
             yR - player.getContentSize().height / 2 * player.getScaleY(),
-            (player.getContentSize().width ) * player.getScaleX(),
+            (player.getContentSize().width) * player.getScaleX(),
             30 * player.getScaleY());
         if (checkMap(rectHeroDemo) == false) {
 
@@ -85,7 +86,7 @@ creatPlayer = function (game) {
                                 (arrrectMap[i].getContentSize().height) * arrrectMap[i].getScaleY());
 
                             if (a - xR > 20) {
-                                if (checkMap(rectMap2)!=false){
+                                if (checkMap(rectMap2) != false) {
                                     xR = xR - 1;
                                     yR = yK;
 
@@ -97,14 +98,13 @@ creatPlayer = function (game) {
                             }
 //ph
                             else if (a - xR < -20) {
-                                if (checkMap(rectMap3)!=false){
+                                if (checkMap(rectMap3) != false) {
                                     xR = xR + 1;
                                     yR = yK;
 
 
                                 }
-                                else
-                                {
+                                else {
                                     xR = xK;
                                     yR = yK;
                                 }
@@ -120,7 +120,7 @@ creatPlayer = function (game) {
 
                 }
             }
-            else if (speedX == 1|| speedX==-1) {
+            else if (speedX == 1 || speedX == -1) {
                 for (var i = 0; i < arrrectMap.length; i++) {
                     if (arrrectMap[i].visible == true) {
                         var rectMap = cc.rect((arrrectMap[i].getPositionX()) - arrrectMap[i].getContentSize().width / 2 * arrrectMap[i].getScaleX(),
@@ -142,7 +142,7 @@ creatPlayer = function (game) {
                             if (a - yR > 2) {
                                 if (checkMap(rectMap2) != false) {
                                     yR = yR - 1;
-                                    xR=xK;
+                                    xR = xK;
                                 }
                                 else {
                                     xR = xK;
@@ -153,7 +153,7 @@ creatPlayer = function (game) {
                             else if (a - yR < -30) {
                                 if (checkMap(rectMap3) != false) {
                                     yR = yR + 1;
-                                    xR=xK;
+                                    xR = xK;
 
                                 }
                                 else {
@@ -183,6 +183,16 @@ creatPlayer = function (game) {
         }
 
         player.setPosition(cc.p(xR, yR));
+        var actionPlayer = new cc.MoveTo(0, cc.p(xR,yR+35));
+        popupSax.runAction(actionPlayer);
+    },
+    popupSaxPlayer = function () {
+        popupSax = new cc.LabelTTF("Press Z");
+        popupSax.setFontSize(15);
+        popupSax.setLocalZOrder(3);
+        popupSax.setVisible(false);
+        popupSax.setPosition(cc.p(player.getPosition().x, player.getPosition().y + 35));
+        game.addChild(popupSax);
     },
     playertoDie = function () {
         rectHero = cc.rect(player.getPositionX() + 10 - player.getContentSize().width / 2 * player.getScaleX(),
