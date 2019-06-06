@@ -154,7 +154,7 @@ var Gamelayers = cc.Layer.extend({
                 cc.director.pushScene(new cc.TransitionFade(10, scene));
                 gameOverNow = false;
             }
-            //so diem ha guc boss
+            //so diem ha guc boss e win
             if (countkillboss == 16) {
                 gamewin(game);
                 gameWinNow = false;
