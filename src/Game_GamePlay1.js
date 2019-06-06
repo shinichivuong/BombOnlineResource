@@ -33,15 +33,23 @@ var Gamelayers = cc.Layer.extend({
                         switch (key) {
                             case 37:
                                 keyLeft = true;
+                                keyDown=false;
+                                keyUp=false;
                                 break;
                             case 39:
                                 keyRight = true;
+                                keyDown=false;
+                                keyUp=false;
                                 break;
                             case 38:
                                 keyUp = true;
+                                keyLeft=false;
+                                keyRight=false;
                                 break;
                             case 40:
                                 keyDown = true;
+                                keyLeft=false;
+                                keyRight=false;
                                 break;
 
                             case 65:
@@ -429,14 +437,14 @@ startGame = function (game) {
                 speedY = -1;
             }
             else speedY = 0;
-            if (keyLeft) setLeft();
-            if (keyRight) setRight();
-            if (keyUp) setUp();
-            if (keyDown) setDown();
-            if (keyLeft || keyRight || keyDown || keyUp) {
-                moveGame();
-
-            }
+            if (keyLeft) {setLeft(); moveGame();}
+            else if (keyRight) {setRight();moveGame();}
+            else if (keyUp) {setUp();moveGame();}
+            else if (keyDown) {setDown();moveGame();}
+            // if (keyLeft || keyRight || keyDown || keyUp) {
+            //     moveGame();
+            //
+            // }
             if (keySpace) {
                 9
                 if (arrBombs.length <= countBomb && checkBombSmall() == true) {

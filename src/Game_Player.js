@@ -88,6 +88,7 @@ creatPlayer = function (game) {
                             if (a - xR > 20) {
                                 if (checkMap(rectMap2) != false) {
                                     xR = xR - 1;
+                                    player.setTexture(arrPlayer[1]);
                                     yR = yK;
 
                                 }
@@ -100,6 +101,8 @@ creatPlayer = function (game) {
                             else if (a - xR < -20) {
                                 if (checkMap(rectMap3) != false) {
                                     xR = xR + 1;
+                                    player.setTexture(arrPlayer[2]);
+
                                     yR = yK;
 
 
@@ -142,6 +145,8 @@ creatPlayer = function (game) {
                             if (a - yR > 2) {
                                 if (checkMap(rectMap2) != false) {
                                     yR = yR - 1;
+                                    player.setTexture(arrPlayer[0]);
+
                                     xR = xK;
                                 }
                                 else {
@@ -153,6 +158,8 @@ creatPlayer = function (game) {
                             else if (a - yR < -30) {
                                 if (checkMap(rectMap3) != false) {
                                     yR = yR + 1;
+                                    player.setTexture(arrPlayer[3]);
+
                                     xR = xK;
 
                                 }

@@ -205,7 +205,7 @@ creatBoom = function (game) {
         return true;
     };
 //pha tuong
-destroybox = function () {
+    destroybox = function () {
     for (var j = 0; j < arrrectMap.length; j++) {
         if (arrrectMap[j].visible == true) {
             if (arrrectMap[j].getTag().toString() == "4") {
